@@ -1,0 +1,151 @@
+---
+import { Image } from 'astro:assets';
+// import '../styles/global.css'
+import '../styles/experiences.css'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>NHM Travels</title>
+		<!-- Google Fonts -->
+		<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+		rel="stylesheet"
+		/>
+	</head>
+	  <body>
+    <!-- Full Page Hero Section with Background Image -->
+    <section class="hero-section">
+      <!-- <div class="hero-overlay"></div> -->
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">EXPLORE</div>
+          <h1 class="hero-title">
+            <span class="hero-title-line">Featured</span>
+            <span class="hero-title-line">Experiences</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two Column Section with Green Background -->
+    <section class="description-section">
+      <div class="container">
+        <div class="two-col-layout">
+          <div class="text-col">
+            <h2 class="description-title">
+              Unforgettable experiences across Iran
+            </h2>
+            <p class="description-text">
+              From the Caspian coastline to desert heartlands,<br />
+              Iran offers travelers a mosaic of adventures.<br />
+              Whether you're sailing in Ramsar, exploring<br />
+              Persepolis, or wandering through Tahrir's ancient<br />
+              bazaar, each city reveals a unique story. These<br />
+              featured experiences invite you to discover Iran's<br />
+              natural beauty, cultural depth, and timeless history.
+            </p>
+          </div>
+          <div class="image-col">
+            <div class="description-image">
+              <!-- Image placeholder - would be replaced with actual image -->
+              <div class="image-placeholder">
+                <!-- <div class="image-overlay"></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Cards Grid with Green Background -->
+    <section class="experiences-section">
+      <div class="container">
+        <div class="cards-grid">
+          <!-- Card 1 -->
+          <div class="experience-card">
+            <img src="/src/images/experiences/ramsar.jpg" alt="Ramsar" />
+            <h3 class="card-title">
+              Boat Ride on the<br />Caspian Sea (Ramsar)
+            </h3>
+            <p class="card-description">
+              Enjoy a serene boat trip with views of lush forests meeting the
+              sea. This may be the highlight of your entire trip!
+            </p>
+            <!-- <div class="card-separator"></div>
+            <a href="#" class="explore-link">Explore</a> -->
+          </div>
+
+          <!-- Card 2 -->
+          <div class="experience-card">
+            <img src="/src/images/experiences/shiraz.jpg" alt="Shiraz" />
+            <h3 class="card-title">Persepolis (Shiraz)</h3>
+            <p class="card-description">
+              Walk through the ruins of the Achaemenid Empire's ceremonial
+              capital, a UNESCO World Heritage site.
+            </p>
+            <!-- <div class="card-separator"></div>
+            <a href="#" class="explore-link">Explore</a> -->
+          </div>
+
+          <!-- Card 3 -->
+          <div class="experience-card">
+            <img src="/src/images/experiences/isfahan.jpg" alt="Isfahan" />
+            <h3 class="card-title">Traditional Tea (Isfahan)</h3>
+            <p class="card-description">
+              Sip saffron tea in historic caravanserais and admire Persian
+              architecture.
+            </p>
+            <!-- <div class="card-separator"></div>
+            <a href="#" class="explore-link">Explore</a> -->
+          </div>
+
+          <!-- Card 4 -->
+          <div class="experience-card">
+            <img src="/src/images/experiences/tehran.jpg" alt="Tehran" />
+            <h3 class="card-title">Cable Car to<br />Tochal Peak (Tehran)</h3>
+            <p class="card-description">
+              Ride up the Alborz Mountains for panoramic views over the capital.
+            </p>
+            <!-- <div class="card-separator"></div>
+            <a href="#" class="explore-link">Explore</a> -->
+          </div>
+
+          <!-- Card 5 -->
+          <div class="experience-card">
+            <img src="/src/images/experiences/gilan.jpg" alt="Gilan" />
+            <h3 class="card-title">Masuleh Village (Gilan Province)</h3>
+            <p class="card-description">
+              Wander through terraced houses built into the mountainside,
+              surrounded by forests.
+            </p>
+            <!-- <div class="card-separator"></div>
+            <a href="#" class="explore-link">Explore</a> -->
+          </div>
+
+          <!-- Card 6 -->
+          <div class="experience-card">
+            <img src="/src/images/experiences/hormuz.jpg" alt="Hormuz" />
+            <h3 class="card-title">Rainbow Valley (Hormuz Island)</h3>
+            <p class="card-description">
+              Marvel at surreal landscapes of red, yellow, and purple earth
+              along the Persian Gulf.
+            </p>
+            <!-- <div class="card-separator"></div>
+            <a href="#" class="explore-link">Explore</a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2023 Iran Travel Experiences. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
