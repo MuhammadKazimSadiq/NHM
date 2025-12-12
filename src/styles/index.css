@@ -1,6 +1,9 @@
 @font-face {
   font-family: "tan-ashford";
-  src: url("/src/fonts/TAN-ASHFORD.woff2") format("woff2");
+  src: url("/fonts/TAN-ASHFORD.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* ---------------------------------

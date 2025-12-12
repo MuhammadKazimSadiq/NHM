@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import intro_1 from '../../images/index/intro-1.png'
+import intro_2 from '../../images/index/intro-2.png'
+---
+
+ <section class="intro-nhm">
+        <div class="intro-container">
+            <!-- Left Column – Text -->
+            <div class="intro-text">
+                <h2>
+                    Travel to Iran with
+                    <span class="accent">NHM Travels!</span>
+                </h2>
+
+                <p>
+                    NHM Travels has been offering trips to Iran
+                    <br />
+                    since time. Book your unique and
+                    <br />
+                    unforgettable trip now!
+                </p>
+            </div>
+
+            <!-- Right Column – Images -->
+            <div class="intro-images">
+                <div class="intro-img">
+                    <Image src={intro_1} alt="Iran architecture dome turquoise" />
+                </div>
+
+                <div class="intro-img">
+                    <Image src={intro_2} alt="Iran sunset landscape" />
+                </div>
+            </div>
+        </div>
+    </section>
