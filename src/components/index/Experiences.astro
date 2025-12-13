@@ -1,6 +1,55 @@
 ---
+import tehran from '../../images/index/tehran.jpg'
+import shiraz from '../../images/index/shiraz.jpg'
+import tabriz from '../../images/index/tabriz.jpg'
+import ramsar from '../../images/index/ramsar.jpg'
 
+const experiences = [
+  { img: tehran, label: 'Desert Nights' },
+  { img: shiraz, label: 'Caravanserai Stays' },
+  { img: tabriz, label: 'Culinary Trails' },
+  { img: ramsar, label: 'Mountain Escapes' },
+]
 ---
+
+<style>
+.experiences-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.experience-card {
+  height: 260px;
+  position: relative;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+}
+
+.experience-label {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1rem;
+  color: white;
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+</style>
 
 <section id="experiences" class="section section-alt">
     <div class="container">
@@ -13,18 +62,14 @@
     </header>
 
     <div class="experiences-row">
-        <div class="experience-card exp-img-1">
-        <div class="experience-label">Desert Nights</div>
+      {experiences.map(exp => (
+        <div
+          class="experience-card"
+          style={`background-image: url(${exp.img.src});`}
+        >
+          <div class="experience-label">{exp.label}</div>
         </div>
-        <div class="experience-card exp-img-2">
-        <div class="experience-label">Caravanserai Stays</div>
-        </div>
-        <div class="experience-card exp-img-3">
-        <div class="experience-label">Culinary Trails</div>
-        </div>
-        <div class="experience-card exp-img-4">
-        <div class="experience-label">Mountain Escapes</div>
-        </div>
+      ))}
     </div>
 
     <div class="section-cta">

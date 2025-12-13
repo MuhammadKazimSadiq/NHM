@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import DestinationCard from '../../components/index/DestinationCard.astro'
 
 import isfahan from '../../images/index/isfahan.jpg'
 import mashhad from '../../images/index/mashhad.jpg'
@@ -7,118 +7,74 @@ import tehran from '../../images/index/tehran.jpg'
 import ramsar from '../../images/index/ramsar.jpg'
 import shiraz from '../../images/index/shiraz.jpg'
 import tabriz from '../../images/index/tabriz.jpg'
+
+const destinations = [
+  {
+    img: isfahan,
+    imgAlt: 'Isfahan city view at sunset',
+    title: 'Isfahan',
+    description:
+      'A historical gem of Iran, known for its stunning Islamic architecture, grand bazaars, and the iconic Naqsh-e Jahan Square.',
+  },
+  {
+    img: mashhad,
+    imgAlt: 'Shrine of Imam Ali Ridha in Mashhad, Iran',
+    title: 'Mashhad',
+    description:
+      'A spiritual hub and pilgrimage site, home to the sacred shrine of Imam Ali al-Ridha (as), drawing millions annually.',
+  },
+  {
+    img: tehran,
+    imgAlt: '',
+    title: 'Tehran',
+    description:
+      'Iran’s bustling capital, where modern city life meets culture, museums, and mountainous backdrops. There’s something for everyone!',
+  },
+  {
+    img: ramsar,
+    imgAlt: 'Caspian coast forest and sea near Ramsar',
+    title: 'Ramsar',
+    description:
+      'Ramsar is a scenic city on Iran’s northern coast, where the lush forests of the Alborz Mountains meet the shores of the Caspian Sea.',
+  },
+  {
+    img: shiraz,
+    imgAlt: 'Gardens and historic landmarks in Shiraz',
+    title: 'Shiraz',
+    description:
+      'The poetic soul of Iran, known for gardens, shrines, and proximity to ancient Persepolis. It is a city you won’t want to miss exploring.',
+  },
+  {
+    img: tabriz,
+    imgAlt: 'Historic covered bazaar in Tabriz',
+    title: 'Tabriz',
+    description:
+      'A historic trade hub with a massive covered bazaar and deep Azeri cultural roots. From architecture to heritage, it’s worth the trip!',
+  },
+]
 ---
 
-<section id="destinations" class="featured-destinations">
-    <div class="fd-container">
-    <header class="fd-header">
-        <h2>Featured Destinations</h2>
-    </header>
+<style>
+:root {
+  --fd-bg: #d9a86c;
+}
+</style>
 
-    <div class="fd-grid">
-        <!-- Card 1 -->
-        <article class="fd-card">
-        <div class="fd-card-image">
-            <Image
-            src={isfahan}
-            alt="Isfahan city view at sunset"
-            />
-        </div>
-        <div class="fd-card-body">
-            <h3>Isfahan</h3>
-            <p>
-            A historical gem of Iran, known for its stunning Islamic
-            architecture, grand bazaars, and the iconic Naqsh-e Jahan
-            Square.
-            </p>
-        </div>
-        </article>
+<section id="destinations" class="featured-destinations bg-(--fd-bg) py-16">
+    <div class="fd-container max-w-300 mx-auto px-6">
+      <header class="fd-header text-center mb-10">
+          <h2 class="font-heading text-6xl font-bold text-white tracking-[-0.03em] m-0">Featured Destinations</h2>
+      </header>
 
-        <!-- Card 2 -->
-        <article class="fd-card">
-        <div class="fd-card-image">
-            <Image
-            src={mashhad}
-            alt="Shrine of Imam Ali Ridha in Mashhad, Iran"
-            />
-        </div>
-        <div class="fd-card-body">
-            <h3>Mashhad</h3>
-            <p>
-            A spiritual hub and pilgrimage site, home to the sacred shrine
-            of Imam Ali al-Ridha (as), drawing millions annually.
-            </p>
-        </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="fd-card">
-        <div class="fd-card-image">
-            <Image
-            src={tehran}
-            alt="Yazd desert skyline with windcatchers"
-            />
-        </div>
-        <div class="fd-card-body">
-            <h3>Tehran</h3>
-            <p>
-            Iran’s bustling capital, where modern city life meets culture,
-            museums, and mountainous backdrops. There’s something for
-            everyone!
-            </p>
-        </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="fd-card">
-        <div class="fd-card-image">
-            <Image
-            src={ramsar}
-            alt="Tehran skyline and mountains"
-            />
-        </div>
-        <div class="fd-card-body">
-            <h3>Ramsar</h3>
-            <p>
-            Ramsar is a scenic city on Iran’s northern coast, where the
-            lush forests of the Alborz Mountains meet the shores of the
-            Caspian Sea.
-            </p>
-        </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="fd-card">
-        <div class="fd-card-image">
-            <Image src={shiraz} alt="Tabriz historic bazaar" />
-        </div>
-        <div class="fd-card-body">
-            <h3>Shiraz</h3>
-            <p>
-            The poetic soul of Iran, known for gardens, shrines, and
-            proximity to ancient Persepolis. It is a city you won’t want
-            to miss exploring.
-            </p>
-        </div>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="fd-card">
-        <div class="fd-card-image">
-            <Image
-            src={tabriz}
-            alt="Caspian coast forest and sea"
-            />
-        </div>
-        <div class="fd-card-body">
-            <h3>Tabriz</h3>
-            <p>
-            A historic trade hub with a massive covered bazaar and deep
-            Azeri cultural roots. From architecture to heritage, it’s
-            worth the trip!
-            </p>
-        </div>
-        </article>
-    </div>
+      <div class="fd-grid grid grid-cols-3 gap-6">
+        {destinations.map((destination) => (
+          <DestinationCard
+            img={destination.img}
+            imgAlt={destination.imgAlt}
+            title={destination.title}
+            description={destination.description}
+          />
+        ))}
+      </div>
     </div>
 </section>

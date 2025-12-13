@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "tan-ashford";
+  src: url("/fonts/TAN-ASHFORD.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-heading: "tan-ashford", serif;
+  --font-body: "Montserrat", sans-serif;
+}
