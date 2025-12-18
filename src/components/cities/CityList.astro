@@ -1,311 +1,178 @@
 ---
+import CityGroup from "./CityGroup.astro"
+import Mashhad from "/src/images/cities/mashhad.jpeg";
+import Qom from "/src/images/cities/qom.png";
+import Tehran from "/src/images/cities/tehran.webp";
+import Isfahan from "/src/images/cities/isfahan.jpg";
+import Kashan from "/src/images/cities/kashan.jpg";
+import Yazd from "/src/images/cities/yazd.jpg";
+import Shiraz from "/src/images/cities/shiraz.jpg";
+import Tabriz from "/src/images/cities/tabriz.jpg";
+import Kerman from "/src/images/cities/kerman.jpg";
+import Hamedan from "/src/images/cities/hamedan.jpeg";
+import Rasht from "/src/images/cities/rasht.jpg";
+import Qazvin from "/src/images/cities/qazvin.jpg";
+import Ramsar from "/src/images/cities/ramsar.jpg";
+import BandarAbbas from "/src/images/cities/bandar_abbas.jpg";
+import Qeshm from "/src/images/cities/qeshm.jpg";
+import Kish from "/src/images/cities/kish.jpg";
+
+const cityGroups = [
+  {
+    variant: "light",
+    cities: [
+      {
+        img: Mashhad,
+        alt: "Mashhad",
+        title: "Mashhad",
+        description:
+          "Home to the holy shrine of Imam Reza (AS), Mashhad is one of the most important pilgrimage destinations in the Islamic world, surrounded by bazaars and spiritual energy.",
+      },
+      {
+        img: Qom,
+        alt: "Qum",
+        title: "Qum",
+        description:
+          "A major religious center with seminaries, shrines, and traditional streets where history, scholarship, and faith come together.",
+      },
+      {
+        img: Tehran,
+        alt: "Tehran",
+        title: "Tehran",
+        description:
+          "Iran’s lively capital blends museums, modern cafés, and bazaars with views of the Alborz mountains and a dynamic urban culture.",
+      },
+      {
+        img: Isfahan,
+        alt: "Isfahan",
+        title: "Isfahan",
+        description:
+          "Famous for its turquoise domes, historic bridges, and grand squares, Isfahan is often called “half the world” for its beauty and heritage.",
+      },
+    ],
+  },
+
+  {
+    variant: "beige",
+    cities: [
+      {
+        img: Kashan,
+        alt: "Kashan",
+        title: "Kashan",
+        description:
+          "A desert-edge city known for elegant historic houses, traditional baths, and rosewater fragrance during spring.",
+      },
+      {
+        img: Yazd,
+        alt: "Yazd",
+        title: "Yazd",
+        description:
+          "Adobe alleys, windcatchers, and Zoroastrian heritage make this desert city feel timeless under glowing desert skies.",
+      },
+      {
+        img: Shiraz,
+        alt: "Shiraz",
+        title: "Shiraz",
+        description:
+          "Known for poetry, gardens, and nearby Persepolis, Shiraz captures the romantic, artistic spirit of Iran.",
+      },
+      {
+        img: Tabriz,
+        alt: "Tabriz",
+        title: "Tabriz",
+        description:
+          "Once a key Silk Road hub, Tabriz offers a UNESCO-listed bazaar, rich Azeri culture, and mountain landscapes.",
+      },
+    ],
+  },
+
+  {
+    variant: "light",
+    cities: [
+      {
+        img: Kerman,
+        alt: "Kerman desert and fort",
+        title: "Kerman",
+        description:
+          "Gateway to the Lut Desert and historic citadels, Kerman mixes desert adventure with centuries of trading history.",
+      },
+      {
+        img: Hamedan,
+        alt: "Hamedan city view",
+        title: "Hamedan",
+        description:
+          "One of Iran’s oldest cities, associated with ancient Ecbatana and surrounded by fresh mountain air.",
+      },
+      {
+        img: Rasht,
+        alt: "Rasht green landscape",
+        title: "Rasht",
+        description:
+          "A culinary capital in the lush north, Rasht offers vibrant food culture and easy access to forests and the Caspian.",
+      },
+      {
+        img: Qazvin,
+        alt: "Qazvin historic gate",
+        title: "Qazvin",
+        description:
+          "A former royal capital with caravanserais, calligraphy heritage, and quick access to Alamut Valley.",
+      },
+    ],
+  },
+
+  {
+    variant: "beige",
+    cities: [
+      {
+        img: Ramsar,
+        alt: "Ramsar sea and forest",
+        title: "Ramsar",
+        description:
+          "Where the Caspian Sea meets forested mountains, Ramsar is perfect for cable cars, hot springs, and sea views.",
+      },
+      {
+        img: BandarAbbas,
+        alt: "Bandar Abbas port and coast",
+        title: "Bandar Abbas",
+        description:
+          "A bustling port city on the Persian Gulf with coastal promenades and access to southern islands.",
+      },
+      {
+        img: Qeshm,
+        alt: "Qeshm island landscapes",
+        title: "Qeshm",
+        description:
+          "Known for dramatic rock formations, mangrove forests, and geosites, Qeshm is an eco-adventurer’s paradise.",
+      },
+      {
+        img: Kish,
+        alt: "Kish island coastline",
+        title: "Kish",
+        description:
+          "A relaxed island escape with clear waters, coral beaches, and cycling paths along the shoreline.",
+      },
+    ],
+  },
+];
 ---
 
- <section class="cities-section">
-    <div class="cities-container">
-        <header class="cities-header">
-        <h2>Cities to Explore in Iran</h2>
-        </header>
+<style>
+    :root {
+        --color-bg: #f4e7d3;
+    }
+</style>
 
-        <!-- GROUP 1 - WHITE -->
-        <div class="city-group city-group--light">
-        <div class="cities-grid">
-            <!-- Column 1 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/mashhad.jpeg"
-                    alt="Mashhad city view"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Mashhad</h3>
-                <p>
-                    Home to the holy shrine of Imam Reza (AS), Mashhad is one
-                    of the most important pilgrimage destinations in the
-                    Islamic world, surrounded by bazaars and spiritual energy.
-                </p>
-                </div>
-            </article>
+<section class="bg-(--color-bg) md:pt-18 pt-14">
+  <div class="container">
+    <header class="mb-12 text-center">
+      <h2
+        class=" font-heading font-bold text-neutral-800 text-[clamp(2.2rem,4vw,3rem)]">
+        Cities to Explore in Iran
+      </h2>
+    </header>
 
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/qom.png"
-                    alt="Qum shrine and courtyard"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Qum</h3>
-                <p>
-                    A major religious center with seminaries, shrines, and
-                    traditional streets where history, scholarship, and faith
-                    come together.
-                </p>
-                </div>
-            </article>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/tehran.webp"
-                    alt="Tehran skyline and mountains"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Tehran</h3>
-                <p>
-                    Iran’s lively capital blends museums, modern cafés, and
-                    bazaars with views of the Alborz mountains and a dynamic
-                    urban culture.
-                </p>
-                </div>
-            </article>
-
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/isfahan.jpg"
-                    alt="Isfahan Naqsh-e Jahan square"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Isfahan</h3>
-                <p>
-                    Famous for its turquoise domes, historic bridges, and
-                    grand squares, Isfahan is often called “half the world”
-                    for its beauty and heritage.
-                </p>
-                </div>
-            </article>
-            </div>
-        </div>
-        </div>
-
-        <!-- GROUP 2 - BEIGE -->
-        <div class="city-group city-group--beige">
-        <div class="cities-grid">
-            <!-- Column 1 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/kashan.jpg"
-                    alt="Kashan traditional house"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Kashan</h3>
-                <p>
-                    A desert-edge city known for elegant historic houses,
-                    traditional baths, and rosewater fragrance during spring.
-                </p>
-                </div>
-            </article>
-
-            <article class="city-item">
-                <div class="city-img">
-                <img src="/src/images/cities/yazd.jpg" alt="Yazd windcatchers" />
-                </div>
-                <div class="city-text">
-                <h3>Yazd</h3>
-                <p>
-                    Adobe alleys, windcatchers, and Zoroastrian heritage make
-                    this desert city feel timeless under glowing desert skies.
-                </p>
-                </div>
-            </article>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/shiraz.jpg"
-                    alt="Shiraz Nasir al-Mulk mosque"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Shiraz</h3>
-                <p>
-                    Known for poetry, gardens, and nearby Persepolis, Shiraz
-                    captures the romantic, artistic spirit of Iran.
-                </p>
-                </div>
-            </article>
-
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/tabriz.jpg"
-                    alt="Tabriz historic bazaar"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Tabriz</h3>
-                <p>
-                    Once a key Silk Road hub, Tabriz offers a UNESCO-listed
-                    bazaar, rich Azeri culture, and mountain landscapes.
-                </p>
-                </div>
-            </article>
-            </div>
-        </div>
-        </div>
-
-        <!-- GROUP 3 - WHITE -->
-        <div class="city-group city-group--light">
-        <div class="cities-grid">
-            <!-- Column 1 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/kerman.jpg"
-                    alt="Kerman desert and fort"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Kerman</h3>
-                <p>
-                    Gateway to the Lut Desert and historic citadels, Kerman
-                    mixes desert adventure with centuries of trading history.
-                </p>
-                </div>
-            </article>
-
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/hamedan.jpeg"
-                    alt="Hamedan city view"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Hamedan</h3>
-                <p>
-                    One of Iran’s oldest cities, associated with ancient
-                    Ecbatana and surrounded by fresh mountain air.
-                </p>
-                </div>
-            </article>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/rasht.jpg"
-                    alt="Rasht green landscape"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Rasht</h3>
-                <p>
-                    A culinary capital in the lush north, Rasht offers vibrant
-                    food culture and easy access to forests and the Caspian.
-                </p>
-                </div>
-            </article>
-
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/qazvin.jpg"
-                    alt="Qazvin historic gate"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Qazvin</h3>
-                <p>
-                    A former royal capital with caravanserais, calligraphy
-                    heritage, and quick access to Alamut Valley.
-                </p>
-                </div>
-            </article>
-            </div>
-        </div>
-        </div>
-
-        <!-- GROUP 4 - BEIGE -->
-        <div class="city-group city-group--beige">
-        <div class="cities-grid">
-            <!-- Column 1 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/ramsar.jpg"
-                    alt="Ramsar sea and forest"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Ramsar</h3>
-                <p>
-                    Where the Caspian Sea meets forested mountains, Ramsar is
-                    perfect for cable cars, hot springs, and sea views.
-                </p>
-                </div>
-            </article>
-
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/bandar_abbas.jpg"
-                    alt="Bandar Abbas port and coast"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Bandar Abbas</h3>
-                <p>
-                    A bustling port city on the Persian Gulf with coastal
-                    promenades and access to southern islands.
-                </p>
-                </div>
-            </article>
-            </div>
-
-            <!-- Column 2 -->
-            <div class="city-column">
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/qeshm.jpg"
-                    alt="Qeshm island landscapes"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Qeshm</h3>
-                <p>
-                    Known for dramatic rock formations, mangrove forests, and
-                    geosites, Qeshm is an eco-adventurer’s paradise.
-                </p>
-                </div>
-            </article>
-
-            <article class="city-item">
-                <div class="city-img">
-                <img
-                    src="/src/images/cities/qish.jpg"
-                    alt="Kish island coastline"
-                />
-                </div>
-                <div class="city-text">
-                <h3>Kish</h3>
-                <p>
-                    A relaxed island escape with clear waters, coral beaches,
-                    and cycling paths along the shoreline.
-                </p>
-                </div>
-            </article>
-            </div>
-        </div>
-        </div>
-    </div>
-    </section>
+    {cityGroups.map((group) => (
+      <CityGroup {...group} />
+    ))}
+  </div>
+</section>

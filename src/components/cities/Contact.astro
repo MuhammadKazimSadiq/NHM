@@ -1,50 +1,96 @@
----
+<style>
+:root {
+  --bg-color: #4c3a2f;
+}
 
----
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
 
-<section class="final-section">
-    <div class="final-container">
-        <!-- LEFT COLUMN: IMAGE + OVERLAYS -->
-        <div class="final-left">
-        <div class="image-wrapper">
-            <video id="heroVideo" src="/src/videos/video.mp4"></video>
+video::-moz-media-controls {
+  display: none !important;
+}
 
-            <!-- Location Tag -->
-            <div class="overlay location">
-            <span class="loc-icon">📍</span>
-            <span>Kish, Hormozgan Province</span>
-            </div>
+video {
+  -webkit-media-controls: none !important;
+  controls: none !important;
+}
+</style>
 
-            <!-- Play Button -->
-            <div id="playBtn" class="overlay play-button">
-            <div class="play-circle">▶</div>
-            </div>
+<section class="bg-(--bg-color) py-20 text-white">
+  <div
+    class="mx-auto flex max-w-350 gap-16 px-10 lg:flex-row flex-col">
+    <!-- LEFT COLUMN -->
+    <div class="lg:w-3/4 w-full">
+      <div class="relative w-full">
+        <video
+          id="heroVideo"
+          src="/src/videos/video.mp4"
+          class="w-full rounded-3xl object-cover"
+        ></video>
 
-            <!-- Big Heading -->
-            <h2 class="overlay big-heading">Plan your next trip with us!</h2>
+        <!-- Location Tag -->
+        <div
+          class=" absolute flex items-center gap-2 rounded-full bg-black/45 px-4 py-2 text-base backdrop-blur-sm md:left-9 md:bottom-44 left-5 bottom-24">
+          <span class="text-lg">📍</span>
+          <span>Kish, Hormozgan Province</span>
         </div>
+
+        <!-- Play Button -->
+        <div
+          id="playBtn"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+         <div
+            class="flex h-14 w-14 md:h-16 md:w-16 cursor-pointer items-center justify-center
+                  rounded-full bg-white/80 text-3xl md:text-4xl font-bold text-[#4c3a2f]
+                  shadow-lg backdrop-blur
+                  transition hover:scale-105 hover:bg-white"
+          >
+            ▶
+          </div>
         </div>
 
-        <!-- RIGHT COLUMN: CONTACT INFO -->
-        <div class="final-right">
-        <div class="contact-block">
-            <h3>Address</h3>
-            <p>
-            123 Anywhere St.<br />
-            Any City, ST 12345<br />
-            Iran
-            </p>
-        </div>
-
-        <div class="contact-block">
-            <h3>Contact</h3>
-            <p>
-            Ghulam Abbas Esmail<br />
-            Telephone:
-            <a href="tel:+989398597862">+98 939 859 7862</a><br />
-            @nhmtravels
-            </p>
-        </div>
-        </div>
+        <!-- Big Heading -->
+        <h2
+          class="absolute max-w-125 font-heading font-bold leading-tight text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.8)] md:text-[3.2rem] text-[2rem] md:left-9 md:bottom-8 left-5 bottom-5"
+        >
+          Plan your next trip with us!
+        </h2>
+      </div>
     </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="lg:w-1/4 w-full self-end text-center text-white">
+      <div class="mb-12">
+        <h3 class="mb-3 font-heading font-semibold md:text-[1.8rem] text-[1.4rem]">
+          Address
+        </h3>
+        <p class="leading-relaxed md:text-base text-base">
+          123 Anywhere St.<br />
+          Any City, ST 12345<br />
+          Iran
+        </p>
+      </div>
+
+      <div>
+        <h3 class="mb-3 font-heading font-semibold md:text-[1.8rem] text-[1.4rem]">
+          Contact
+        </h3>
+        <p class="leading-relaxed md:text-base text-base">
+          Ghulam Abbas Esmail<br />
+          Telephone:
+          <a
+            href="tel:+989398597862"
+            class="font-semibold underline-offset-2 hover:underline"
+          >
+            +98 939 859 7862
+          </a>
+          <br />
+          @nhmtravels
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
