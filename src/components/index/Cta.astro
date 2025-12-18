@@ -1,47 +1,16 @@
 ---
-
+import Button from '../shared/Button.astro';
 ---
 
-<style>
-    .cta-banner {
-  background-size: cover;
-  background-position: center;
-  color: white;
-  position: relative;
-}
-
-.cta-overlay {
-  padding: 4.5rem 0;
-  background: linear-gradient(140deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.45));
-}
-
-.cta-content {
-  text-align: center;
-}
-
-.cta-content h2 {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  margin: 0 0 0.7rem;
-}
-
-.cta-content p {
-  max-width: 550px;
-  margin: 0 auto 1.8rem;
-  color: #f0f0f0;
-  font-size: 0.98rem;
-}
-</style>
-
-<section class="cta-banner" style="background-image: url('/src/images/index/hero.jpg');">
-    <div class="cta-overlay">
-    <div class="container cta-content">
-        <h2>Book your next trip with us</h2>
-        <p>
+<section class="relative text-white bg-center bg-cover" style="background-image: url('/src/images/index/hero.jpg');">
+    <div class="py-18 bg-linear-to-br from-black/70 to-black/45">
+    <div class="container text-center">
+        <h2 class="font-heading text-3xl mb-3">Book your next trip with us</h2>
+        <p class="text-base mx-auto my-7 text-gray-100 max-w-xl">
         Share your travel dates and interests, and our specialists will
         design a proposal tailored to you within 48 hours.
         </p>
-        <a href="#contact" class="btn btn-primary">Start Planning</a>
+        <Button variant="primary">Start Planning</Button>
     </div>
     </div>
 </section>

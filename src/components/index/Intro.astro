@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import IntroImage from './IntroImage.astro';
 import intro_1 from '../../images/index/intro-1.png'
 import intro_2 from '../../images/index/intro-2.png'
 ---
@@ -31,13 +31,8 @@ import intro_2 from '../../images/index/intro-2.png'
 
             <!-- Right Column – Images -->
             <div class="intro-images flex flex-col gap-5">
-                <div class="intro-img w-full h-64 overflow-hidden rounded-xl shadow-(--intro-shadow)">
-                    <Image class="w-full h-full object-cover" src={intro_1} alt="Iran architecture dome turquoise" />
-                </div>
-
-                <div class="intro-img w-full h-64 overflow-hidden rounded-xl shadow-(--intro-shadow)">
-                    <Image class="w-full h-full object-cover" src={intro_2} alt="Iran sunset landscape" />
-                </div>
+                <IntroImage img={intro_1} altImg="Iran architecture dome turquoise" />
+                <IntroImage img={intro_2} altImg="Iran sunset landscape" />
             </div>
         </div>
     </section>

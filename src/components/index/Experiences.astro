@@ -1,4 +1,5 @@
 ---
+import Button from '../shared/Button.astro'
 import tehran from '../../images/index/tehran.jpg'
 import shiraz from '../../images/index/shiraz.jpg'
 import tabriz from '../../images/index/tabriz.jpg'
@@ -12,68 +13,34 @@ const experiences = [
 ]
 ---
 
-<style>
-.experiences-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-}
-
-.experience-card {
-  height: 260px;
-  position: relative;
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
-}
-
-.experience-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
-}
-
-.experience-label {
-  position: absolute;
-  left: 1.1rem;
-  bottom: 1rem;
-  color: white;
-  font-size: 0.9rem;
-  z-index: 2;
-}
-
-.section-cta {
-  text-align: center;
-  margin-top: 2.5rem;
-}
-</style>
-
-<section id="experiences" class="section section-alt">
+<section id="experiences" class="py-20 bg-white">
     <div class="container">
-    <header class="section-header">
-        <h2>Featured Experiences</h2>
-        <p>
+    <header class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="font-heading text-5xl mb-2">Featured Experiences</h2>
+        <p class="text-base text-gray-600">
         Go beyond sightseeing with immersive cultural encounters and
         nature escapes.
         </p>
     </header>
 
-    <div class="experiences-row">
+    <div class="experiences-row grid grid-cols-4 gap-5">
       {experiences.map(exp => (
         <div
-          class="experience-card"
+          class="bg-center bg-cover relative overflow-hidden rounded-3xl h-64 shadow-xl"
           style={`background-image: url(${exp.img.src});`}
         >
-          <div class="experience-label">{exp.label}</div>
+          {/* gradient overlay */}
+          <div
+            class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.7))]"
+            aria-hidden="true"
+          ></div>
+          <div class="left-5 bottom-4 z-10 absolute text-white text-base">{exp.label}</div>
         </div>
       ))}
     </div>
 
-    <div class="section-cta">
-        <a href="#contact" class="btn btn-outline">See more experiences</a>
+    <div class="text-center mt-10">
+      <Button variant="outline" href="#contact">See more experiences</Button>
     </div>
     </div>
 </section>
