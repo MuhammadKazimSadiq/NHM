@@ -21,13 +21,6 @@
   margin: 0;
 }
 
-/* Grid layout */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px; /* 20–30px */
-}
-
 /* Card */
 .service-card {
   background-color: #ffffff;
@@ -85,38 +78,38 @@
         <h2>Our Services</h2>
     </header>
 
-    <div class="services-grid">
+    <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Service 1 -->
         <article class="service-card">
-        <div class="service-icon" aria-hidden="true">✦</div>
-        <h3>Tailor-Made Itineraries</h3>
-        <ul class="service-list">
-            <li>Custom routes and flexible travel dates</li>
-            <li>Handpicked boutique stays and eco-lodges</li>
-            <li>Private guides, drivers and local experts</li>
-        </ul>
+          <div class="service-icon" aria-hidden="true">✦</div>
+          <h3>Tailor-Made Itineraries</h3>
+          <ul class="service-list">
+              <li>Custom routes and flexible travel dates</li>
+              <li>Handpicked boutique stays and eco-lodges</li>
+              <li>Private guides, drivers and local experts</li>
+          </ul>
         </article>
 
         <!-- Service 2 -->
         <article class="service-card">
-        <div class="service-icon" aria-hidden="true">✈</div>
-        <h3>Guided Group Tours</h3>
-        <ul class="service-list">
-            <li>Small groups for a more personal feel</li>
-            <li>Themed departures focused on culture and nature</li>
-            <li>All logistics handled from arrival to departure</li>
-        </ul>
+          <div class="service-icon" aria-hidden="true">✈</div>
+          <h3>Guided Group Tours</h3>
+          <ul class="service-list">
+              <li>Small groups for a more personal feel</li>
+              <li>Themed departures focused on culture and nature</li>
+              <li>All logistics handled from arrival to departure</li>
+          </ul>
         </article>
 
         <!-- Service 3 -->
         <article class="service-card">
-        <div class="service-icon" aria-hidden="true">❤</div>
-        <h3>On-Trip Support</h3>
-        <ul class="service-list">
-            <li>24/7 assistance during your journey</li>
-            <li>Restaurant and activity recommendations and bookings</li>
-            <li>Help with changes, extensions or emergencies</li>
-        </ul>
+          <div class="service-icon" aria-hidden="true">❤</div>
+          <h3>On-Trip Support</h3>
+          <ul class="service-list">
+              <li>24/7 assistance during your journey</li>
+              <li>Restaurant and activity recommendations and bookings</li>
+              <li>Help with changes, extensions or emergencies</li>
+          </ul>
         </article>
     </div>
     </div>

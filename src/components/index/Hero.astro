@@ -3,10 +3,6 @@ import Button from "../shared/Button.astro"
 ---
 
 <style>
-.logo {
-  font-family: var(--font-heading);
-}
-
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -42,10 +38,10 @@ import Button from "../shared/Button.astro"
 </style>
 
 <header class="hero min-h-screen text-white relative bg-cover bg-center bg-[url(/src/images/index/hero.jpg)]">
-    <div class="hero-overlay min-h-screen flex flex-col bg-[linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0.8))]">
+    <div class="hero-overlay min-h-[85vh] md:min-h-screen flex flex-col bg-[linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0.8))]">
         <nav class="nav flex justify-between items-center p-5 my-0 mx-auto max-w-7xl">
-        <div class="logo font-medium tracking-wider text-lg">NHM Travels</div>
-        <ul class="nav-links list-none flex gap-6 m-0">
+        <div class="logo font-heading font-medium tracking-wider text-lg">NHM Travels</div>
+        <ul class="nav-links list-none gap-6 m-0 hidden lg:flex">
             <li><a href="#intro" class="text-gray-100 font-medium relative text-base">About</a></li>
             <li><a href="#destinations" class="text-gray-100 font-medium relative text-base">Destinations</a></li>
             <li><a href="#experiences" class="text-gray-100 font-medium relative text-base">Experiences</a></li>
