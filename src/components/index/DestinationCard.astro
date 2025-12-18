@@ -1,65 +1,34 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 
-const { img, imgAlt, title, description } = Astro.props;
+const { img, imgAlt, title, description } = Astro.props
 ---
+
 <style>
-:root {
-  --fd-card-bg: #ffffff;
-  --fd-accent: #d4972c;
-  --fd-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  --fd-radius-card: 12px;
-}
-
-.fd-card {
-  background: var(--fd-card-bg);
-  border-radius: var(--fd-radius-card);
-  box-shadow: var(--fd-shadow);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.fd-card-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  border-radius: var(--fd-radius-card) var(--fd-radius-card) 0 0;
-}
-
-.fd-card-body {
-  padding: 22px;
-  background: #124747;
-  flex: 1;
-}
-
-.fd-card-body h3 {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  color: var(--fd-accent);
-  text-align: center;
-  margin: 12px 0 10px;
-  text-decoration: underline;
-}
-
-.fd-card-body p {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: white;
-  line-height: 1.6;
-  text-align: center;
-  margin: 0;
-}
+  :root {
+    --card-bg-color: #124747;
+    --card-title-color: #d4972c;
+  }
 </style>
 
-<article class="fd-card">
-    <div class="fd-card-image">
-        <Image src={img} alt={imgAlt} />
-    </div>
-    <div class="fd-card-body">
-        <h3>{title}</h3>
-        <p>{description}</p>
-    </div>
+<article
+  class="group flex h-full flex-col overflow-hidden rounded-xl bg-white
+         shadow-md transition-all duration-300 ease-out
+         hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl
+         motion-reduce:transition-none">
+  <div>
+    <Image src={img} alt={imgAlt} class="block h-50 w-full object-cover rounded-t-xl" />
+  </div>
+
+  <div class=" flex-1 bg-(--card-bg-color) p-5.5">
+    <h3
+      class=" mb-2.5 mt-3 text-center font-heading text-[1.4rem] text-(--card-title-color) underline">
+      {title}
+    </h3>
+
+    <p
+      class=" m-0 text-center font-body text-base leading-[1.6] text-white">
+      {description}
+    </p>
+  </div>
 </article>

@@ -1,0 +1,25 @@
+---
+const { icon, title, items } = Astro.props;
+---
+
+<article class=" flex flex-col rounded-xl bg-white p-7 shadow-md">
+  <!-- Icon -->
+  <div class=" mb-4 flex h-10 w-10 items-center justify-center rounded-full border-2 border-(--color-accent) text-lg text-(--color-accent)" aria-hidden="true">
+    {icon}
+  </div>
+
+  <!-- Title -->
+  <h3 class=" mb-4 font-heading text-xl font-semibold text-(--color-accent)">
+    {title}
+  </h3>
+
+  <!-- List -->
+  <ul class="list-disc space-y-2 pl-5">
+    {items.map((item:string) => (
+      <li
+        class=" font-body text-sm leading-relaxed text-neutral-700">
+        {item}
+      </li>
+    ))}
+  </ul>
+</article>

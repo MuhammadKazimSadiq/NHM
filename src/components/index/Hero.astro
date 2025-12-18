@@ -1,63 +1,46 @@
 ---
 import Button from "../shared/Button.astro"
+import NavLink from "../shared/NavLink.astro"
 ---
 
-<style>
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  bottom: -0.25rem;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-accent);
-  transition: 0.2s ease;
-}
+<header class="hero relative min-h-[85vh] md:min-h-screen bg-cover bg-center bg-[url(/src/images/index/hero.jpg)] text-white">
+  <div class="hero-overlay flex min-h-[85vh] md:min-h-screen flex-col bg-[linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0.8))]">
 
-.nav-links a:hover::after {
-  width: 100%;
-}
+    <nav class="nav mx-auto flex max-w-7xl items-center justify-between p-5 gap-12">
+      <div class="logo font-heading text-lg font-medium tracking-wider">
+        NHM Travels
+      </div>
 
-.hero-kicker {
-  letter-spacing: 0.16em;
-}
+      <ul class="nav-links m-0 hidden list-none gap-6 lg:flex">
+        <NavLink href="#intro">About</NavLink>
+        <NavLink href="#destinations">Destinations</NavLink>
+        <NavLink href="#experiences">Experiences</NavLink>
+        <NavLink href="#services">Services</NavLink>
+        <NavLink href="#contact">Contact</NavLink>
+      </ul>
+    </nav>
 
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 4vw, 3.6rem);
-  margin: 0 0 0.8rem;
-  text-shadow: 0 12px 32px rgba(0, 0, 0, 0.9);
-}
+    <div class="hero-content container flex flex-1 flex-col justify-center pb-20">
+      <p class="hero-kicker mb-8 text-base uppercase tracking-[0.16em] text-[#f3e3c6]">
+        Discover Iran with
+      </p>
 
-.hero-subtitle {
-  max-width: 520px;
-  font-size: 0.98rem;
-  color: #f4f4f4;
-  margin-bottom: 1.8rem;
-}
-</style>
+      <h1
+        class="font-heading mb-3
+               text-[clamp(2.6rem,4vw,3.6rem)]
+               drop-shadow-[0_12px_32px_rgba(0,0,0,0.9)]"
+      >
+        Timeless Journeys Through Iran
+      </h1>
 
-<header class="hero min-h-screen text-white relative bg-cover bg-center bg-[url(/src/images/index/hero.jpg)]">
-    <div class="hero-overlay min-h-[85vh] md:min-h-screen flex flex-col bg-[linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0.8))]">
-        <nav class="nav flex justify-between items-center p-5 my-0 mx-auto max-w-7xl">
-        <div class="logo font-heading font-medium tracking-wider text-lg">NHM Travels</div>
-        <ul class="nav-links list-none gap-6 m-0 hidden lg:flex">
-            <li><a href="#intro" class="text-gray-100 font-medium relative text-base">About</a></li>
-            <li><a href="#destinations" class="text-gray-100 font-medium relative text-base">Destinations</a></li>
-            <li><a href="#experiences" class="text-gray-100 font-medium relative text-base">Experiences</a></li>
-            <li><a href="#services" class="text-gray-100 font-medium relative text-base">Services</a></li>
-            <li><a href="#contact" class="text-gray-100 font-medium relative text-base">Contact</a></li>
-        </ul>
-        </nav>
+      <p class="hero-subtitle mb-[1.8rem] max-w-[520px] text-[0.98rem] text-gray-100">
+        From ancient cities to desert skies, experience the depth of Persian
+        culture with curated itineraries by NHM Travels.
+      </p>
 
-        <div class="hero-content container flex flex-col justify-center flex-1 pb-20">
-        <p class="hero-kicker text-base uppercase text-[#f3e3c6] mb-8">Discover Iran with</p>
-        <h1>Timeless Journeys Through Iran</h1>
-        <p class="hero-subtitle">
-            From ancient cities to desert skies, experience the depth of Persian
-            culture with curated itineraries by NHM Travels.
-        </p>
-        <Button variant="primary" href="#contact">Book Now</Button>
-        </div>
+      <Button variant="primary" href="#contact">
+        Book Now
+      </Button>
     </div>
+  </div>
 </header>

@@ -1,116 +1,68 @@
 ---
+import ServiceCard from "./ServiceCard.astro"
 
+const services = [
+  {
+    icon: "✦",
+    title: "Tailor-Made Itineraries",
+    items: [
+      "Custom routes and flexible travel dates",
+      "Handpicked boutique stays and eco-lodges",
+      "Private guides, drivers and local experts",
+    ],
+  },
+  {
+    icon: "✈",
+    title: "Guided Group Tours",
+    items: [
+      "Small groups for a more personal feel",
+      "Themed departures focused on culture and nature",
+      "All logistics handled from arrival to departure",
+    ],
+  },
+  {
+    icon: "❤",
+    title: "On-Trip Support",
+    items: [
+      "24/7 assistance during your journey",
+      "Restaurant and activity recommendations and bookings",
+      "Help with changes, extensions or emergencies",
+    ],
+  },
+];
 ---
 
-<style>
-    .services-section {
-  background-color: #f4f4f4;
-  padding: 80px 0; /* 70–90px */
-}
-
-.services-header {
-  text-align: center;
-  margin-bottom: 45px; /* 40–50px */
-}
-
-.services-header h2 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: clamp(2.3rem, 3vw, 2.7rem); /* ~36–44px */
-  color: #222;
-  margin: 0;
-}
-
-/* Card */
-.service-card {
-  background-color: #ffffff;
-  border-radius: 14px;
-  padding: 30px; /* 25–35px */
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Icon */
-.service-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  border: 2px solid var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--color-accent);
-  margin-bottom: 16px;
-}
-
-/* Service title */
-.service-card h3 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.35rem; /* ~20–24px */
-  color: var(--color-accent);
-  margin: 0 0 14px; /* 12–18px spacing to list */
-}
-
-/* Bullet list */
-.service-list {
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin: 0;
-}
-
-.service-list li {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.98rem; /* 14–16px */
-  color: #444;
-  line-height: 1.55;
-  margin-bottom: 8px; /* 6–10px */
-}
-</style>
-
-<section id="services" class="services-section">
-    <div class="container">
-    <header class="services-header">
-        <h2>Our Services</h2>
+<section
+  id="services"
+  class="bg-neutral-100 py-20"
+>
+  <div class="container">
+    <!-- Header -->
+    <header class="mb-12 text-center">
+      <h2
+        class="
+          font-heading
+          text-3xl
+          font-bold
+          text-neutral-800
+          md:text-[2.6rem]
+        "
+      >
+        Our Services
+      </h2>
     </header>
 
-    <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Service 1 -->
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">✦</div>
-          <h3>Tailor-Made Itineraries</h3>
-          <ul class="service-list">
-              <li>Custom routes and flexible travel dates</li>
-              <li>Handpicked boutique stays and eco-lodges</li>
-              <li>Private guides, drivers and local experts</li>
-          </ul>
-        </article>
-
-        <!-- Service 2 -->
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">✈</div>
-          <h3>Guided Group Tours</h3>
-          <ul class="service-list">
-              <li>Small groups for a more personal feel</li>
-              <li>Themed departures focused on culture and nature</li>
-              <li>All logistics handled from arrival to departure</li>
-          </ul>
-        </article>
-
-        <!-- Service 3 -->
-        <article class="service-card">
-          <div class="service-icon" aria-hidden="true">❤</div>
-          <h3>On-Trip Support</h3>
-          <ul class="service-list">
-              <li>24/7 assistance during your journey</li>
-              <li>Restaurant and activity recommendations and bookings</li>
-              <li>Help with changes, extensions or emergencies</li>
-          </ul>
-        </article>
+    <!-- Grid -->
+    <div
+      class="
+        grid gap-6
+        sm:grid-cols-2
+        lg:grid-cols-3
+      "
+    >
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
     </div>
-    </div>
+  </div>
 </section>
