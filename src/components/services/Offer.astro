@@ -1,5 +1,86 @@
----
----
+<style>
+    .offer-section {
+  padding: 80px 40px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.offer-section h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.offer-section h2 span {
+  color: #007a7a;
+}
+
+.offer-section p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #666;
+}
+
+.offer-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.offer-card {
+  width: 23%;
+  transition: transform 0.3s ease;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: end;
+  align-content: end;
+  justify-content: left;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.offer-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.offer-card-content {
+  padding: 20px;
+}
+
+.offer-card-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: white;
+  text-align: left;
+}
+
+@media (max-width: 1200px) {
+  .offer-cards {
+    justify-content: center;
+  }
+
+  .offer-card {
+    width: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer-section h2 {
+    font-size: 2.5rem;
+  }
+}
+</style>
 
 <section class="offer-section">
     <h2>What We <span>Can Offer You</span></h2>

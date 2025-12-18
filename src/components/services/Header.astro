@@ -1,14 +1,32 @@
 ---
+import { Image } from "astro:assets"
+import Logo from "/src/images/logo.png"
 ---
 
-<section class="header">
-    <div class="logo">
-        <img src="/src/images/logo.png" alt="NHM Travels Logo" />
-        <span class="logo-text">nhm TRAVELS</span>
+<section
+  class="relative h-screen bg-[url('/src/images/services/hero.jpg')] bg-cover bg-center flex flex-col justify-between p-5 text-white">
+  <!-- Logo -->
+  <div class="flex items-center gap-2.5">
+    <Image src={Logo} alt="NHM Travales Logo" class="w-10 h-10 rounded-full" />
+    <span class="text-lg font-bold tracking-wide">
+      nhm TRAVELS
+    </span>
+  </div>
+
+  <!-- Hero content -->
+  <div class="mt-24 max-w-full">
+    <h1
+      class="max-w-225 text-[5rem] font-bold leading-tight mb-5 drop-shadow-md max-xl:text-[4rem] max-md:text-[2.5rem]">
+      Answer the call, leave everything behind.
+    </h1>
+
+    <div class="flex justify-end">
+      <a
+        href="#"
+        class="inline-block mr-12 mb-12 rounded-full bg-[#0dbdad] px-6 py-3 font-light text-white transition-all duration-300 hover:bg-[#27ae60] hover:-translate-y-0.5"
+      >
+        BOOK NOW →
+      </a>
     </div>
-    <div class="hero-content">
-        <h1 class="hero-title">Answer the call, leave everything behind.</h1>
-        <div class="book-now-btn-container">
-        <a href="#" class="book-now-btn">BOOK NOW →</a>
-    </div>
+  </div>
 </section>

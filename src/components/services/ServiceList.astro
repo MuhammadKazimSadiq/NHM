@@ -1,5 +1,111 @@
----
----
+<style>
+.services-section {
+  display: flex;
+  min-height: 600px;
+}
+
+.left-panel {
+  width: 35%;
+  background-color: #e1a730;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.left-panel svg {
+  width: 52px;
+  height: 52px;
+  transform: translate(0px, 0px) rotate(30deg);
+}
+
+.left-panel h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.left-panel p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.right-panel {
+  width: 65%;
+  background-color: #007a7a;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-card {
+  width: 30%;
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  /* border-radius: 10px; */
+  /* overflow: hidden; */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.service-image {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  align-items: end;
+  align-content: end;
+  justify-content: left;
+}
+
+.service-content {
+  padding: 20px;
+}
+
+.service-content-title {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-left: 18px;
+  width: 70%;
+}
+
+.service-content p {
+  font-size: 1rem;
+  color: white;
+}
+
+@media (max-width: 1200px) {
+   .services-section {
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .right-panel {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .service-card {
+    width: 100%;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-panel h2 {
+    font-size: 2.5rem;
+  }
+}
+</style>
 
 <section class="services-section">
     <div class="left-panel">
@@ -7,7 +113,6 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 48 48"
         style="fill: rgb(255, 255, 255)"
-        original_string_length="272"
         width="1600px"
         height="1600px"
         >
