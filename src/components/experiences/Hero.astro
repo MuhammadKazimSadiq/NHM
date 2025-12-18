@@ -1,15 +1,23 @@
----
----
+<section
+  class=" relative flex items-center h-screen min-h-175 bg-[url('/src/images/experiences/hero.jpg')] bg-cover bg-center text-white max-md:min-h-150 max-md:py-12">
+  <!-- Overlay -->
+  <div
+    class=" absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1))]"></div>
 
-<section class="hero-section">
-    <!-- <div class="hero-overlay"></div> -->
-    <div class="container">
-        <div class="hero-content">
-            <div class="eyebrow">EXPLORE</div>
-            <h1 class="hero-title">
-            <span class="hero-title-line">Featured</span>
-            <span class="hero-title-line">Experiences</span>
-            </h1>
-        </div>
+  <!-- Content -->
+  <div class="relative z-10 w-full text-center container mx-auto px-4">
+    <!-- Eyebrow -->
+    <div
+      class="uppercase tracking-[0.18em] text-xl font-light opacity-90 mb-2 max-sm:text-xs max-sm:tracking-[0.12em]">
+      EXPLORE
     </div>
+
+    <!-- Title -->
+    <h1
+      class=" font-heading font-bold leading-[1.4] mb-8 text-[clamp(42px,7vw,100px)] drop-shadow-[0_4px_25px_rgba(0,0,0,0.45)]"
+    >
+      <span class="block">Featured</span>
+      <span class="block">Experiences</span>
+    </h1>
+  </div>
 </section>
