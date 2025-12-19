@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css'
+import Layout from '../layouts/Layout.astro';
 import Header from '../components/services/Header.astro';
 import ServiceList from '../components/services/ServiceList.astro';
 import Offer from '../components/services/Offer.astro';
@@ -7,24 +7,10 @@ import Testimonials from '../components/services/Testimonials.astro';
 import Footer from '../components/services/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>NHM Travels</title>
-		<!-- Google Fonts -->
-		<link
-		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
-		rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<Header />
-		<ServiceList />
-		 <Offer />
-		<Testimonials />
-		<Footer /> 
-	</body>
-</html>
+<Layout title="Services | NHM Travels">
+    <Header />
+    <ServiceList />
+    <Offer />
+    <Testimonials />
+    <Footer />
+</Layout>

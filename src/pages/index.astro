@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css'
+import Layout from '../layouts/Layout.astro';
 import Hero from '../components/index/Hero.astro';
 import Intro from '../components/index/Intro.astro';
 import Destinations from '../components/index/Destinations.astro';
@@ -9,28 +9,12 @@ import Cta from '../components/index/Cta.astro';
 import Footer from '../components/index/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>NHM Travels</title>
-		<!-- Google Fonts -->
-		<link
-		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
-		rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<Hero />
-		<main>
-			<Intro />
-			<Destinations />
-			<Experiences />
-			<Services />
-			<Cta />
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout>
+    <Hero />
+    <Intro />
+    <Destinations />
+    <Experiences />
+    <Services />
+    <Cta />
+    <Footer />
+</Layout>

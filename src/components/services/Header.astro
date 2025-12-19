@@ -1,20 +1,14 @@
 ---
 import { Image } from "astro:assets"
-import Logo from "/src/images/logo.png"
+
 ---
 
 <section
-  class="relative h-screen bg-[url('/src/images/services/hero.jpg')] bg-cover bg-center flex flex-col justify-between p-5 text-white">
+  class="relative h-screen bg-[url('/src/images/services/hero.jpg')] bg-cover bg-center flex flex-col justify-end p-5 text-white">
   <!-- Logo -->
-  <div class="flex items-center gap-2.5">
-    <Image src={Logo} alt="NHM Travales Logo" class="w-10 h-10 rounded-full" />
-    <span class="text-lg font-bold tracking-wide">
-      nhm TRAVELS
-    </span>
-  </div>
 
   <!-- Hero content -->
-  <div class="mt-24 max-w-full">
+  <div class="max-w-full">
     <h1
       class="max-w-225 text-[5rem] font-bold leading-tight mb-5 drop-shadow-md max-xl:text-[4rem] max-md:text-[2.5rem]">
       Answer the call, leave everything behind.

@@ -1,39 +1,26 @@
 ---
-import '../styles/global.css'
+import Layout from '../layouts/Layout.astro';
 
 import Hero from '../components/cities/Hero.astro';
 import CityList from '../components/cities/CityList.astro';
 import Contact from '../components/cities/Contact.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>NHM Travels</title>
-		<!-- Google Fonts -->
-		<link
-		href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
-		rel="stylesheet"
-		/>
-	</head>
-	  <body>
-      <Hero />
-    <main>
-      <CityList />
-      <Contact />
-    </main>
+<Layout title="Cities | NHM Travels">
+    <Hero />
+    <CityList />
+    <Contact />
+
     <script>
       const video = document.getElementById("heroVideo") as HTMLVideoElement;
       const playBtn = document.getElementById("playBtn") as HTMLDivElement;
 
-      playBtn.addEventListener("click", function () {
-        video.play();
-        video.setAttribute("controls", "true");
-        playBtn.style.display = "none";
-      });
+      if (video && playBtn) {
+          playBtn.addEventListener("click", function () {
+            video.play();
+            video.setAttribute("controls", "true");
+            playBtn.style.display = "none";
+          });
+      }
     </script>
-  </body>
-</html>
+</Layout>
