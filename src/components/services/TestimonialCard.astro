@@ -1,0 +1,21 @@
+---
+const { text, author, stars = 5 } = Astro.props;
+---
+
+<article
+  class="w-75 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-xl transition hover:bg-white/15 max-xl:w-full max-xl:max-w-87">
+  <!-- Stars -->
+  <div class="mb-4 text-lg tracking-[3px] text-white">
+    {"★".repeat(stars)}
+  </div>
+
+  <!-- Text -->
+  <p class="mb-5 text-base leading-relaxed text-white/90">
+    {text}
+  </p>
+
+  <!-- Author -->
+  <p class="text-lg font-bold text-white">
+    {author}
+  </p>
+</article>

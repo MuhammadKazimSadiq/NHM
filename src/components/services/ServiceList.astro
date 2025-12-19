@@ -1,183 +1,61 @@
-<style>
-.services-section {
-  display: flex;
-  min-height: 600px;
-}
+---
+import ServiceCard from "./ServiceCard.astro";
+import Service_1 from "../../images/services/services-1.jpg"
+import Service_2 from "../../images/services/services-2.webp"
+import Service_3 from "../../images/services/services-3.webp"
 
-.left-panel {
-  width: 35%;
-  background-color: #e1a730;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-}
+const services = [
+  {
+    image: Service_1,
+    title: "Customized Services",
+    description:
+      "Travel with ease and confidence – from planning to arrival, our personalized services ensure a smooth, comfortable, and unforgettable experience.",
+  },
+  {
+    image: Service_2,
+    title: "Specialized Services",
+    description:
+      "From Nikkah ceremonies to medical tourism, we offer specialized services tailored to your purpose, with care and professionalism!",
+  },
+  {
+    image: Service_3,
+    title: "General Services",
+    description:
+      "Experience smooth, customized travel planning with services designed to make your journey effortless and memorable.",
+  },
+];
+---
 
-.left-panel svg {
-  width: 52px;
-  height: 52px;
-  transform: translate(0px, 0px) rotate(30deg);
-}
+<section class="flex min-h-150 flex-col xl:flex-row">
+  <!-- LEFT PANEL -->
+  <div class="xl:w-[35%] bg-[#e1a730] px-10 py-15 flex flex-col justify-between">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 48 48"
+      class="h-13 w-13 rotate-30 fill-white"
+    >
+      <path d="m24 4l-15 36.59 1.41 1.41 13.59-6 13.59 6 1.41-1.41z" />
+    </svg>
 
-.left-panel h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.1;
-}
+    <div>
+      <h2 class="text-5xl font-bold leading-tight text-black">
+        Leave<br />
+        <em class="italic">it to us!</em>
+      </h2>
 
-.left-panel p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
-.right-panel {
-  width: 65%;
-  background-color: #007a7a;
-  padding: 60px 40px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.service-card {
-  width: 30%;
-  /* background-color: rgba(255, 255, 255, 0.9); */
-  /* border-radius: 10px; */
-  /* overflow: hidden; */
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-}
-
-.service-image {
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 30px;
-  position: relative;
-  display: flex;
-  align-items: end;
-  align-content: end;
-  justify-content: left;
-}
-
-.service-content {
-  padding: 20px;
-}
-
-.service-content-title {
-  font-size: 1.2rem;
-  color: white;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-left: 18px;
-  width: 70%;
-}
-
-.service-content p {
-  font-size: 1rem;
-  color: white;
-}
-
-@media (max-width: 1200px) {
-   .services-section {
-    flex-direction: column;
-  }
-
-  .left-panel,
-  .right-panel {
-    width: 100%;
-    padding: 40px 20px;
-  }
-
-  .right-panel {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .service-card {
-    width: 100%;
-    padding: 0 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .left-panel h2 {
-    font-size: 2.5rem;
-  }
-}
-</style>
-
-<section class="services-section">
-    <div class="left-panel">
-        <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 48 48"
-        style="fill: rgb(255, 255, 255)"
-        width="1600px"
-        height="1600px"
-        >
-        <path d="m0 0h48v48h-48z" style="fill: none" />
-        <g id="__id1_svgcwnjfa">
-            <path
-            d="m24 4l-15 36.59 1.41 1.41 13.59-6 13.59 6 1.41-1.41z"
-            style="fill: inherit"
-            />
-        </g>
-        </svg>
-        <div>
-        <h2>Leave<br /><em>it to us!</em></h2>
-        <p>
-            NHM Travels offers tailored, spiritually enriching travel
-            experiences across Iran, helping you explore its sacred sites,
-            natural beauty, and rich cultural heritage with ease and
-            authenticity.
-        </p>
-        </div>
+      <p class="mt-5 text-lg text-black/90">
+        NHM Travels offers tailored, spiritually enriching travel experiences
+        across Iran, helping you explore sacred sites, natural beauty, and rich
+        cultural heritage with ease and authenticity.
+      </p>
     </div>
-    <div class="right-panel">
-        <div class="service-card">
-        <div
-            class="service-image"
-            style="background-image: url('/src/images/services/services-1.jpg')"
-        >
-            <h3 class="service-content-title">Customized Services</h3>
-        </div>
-        <div class="service-content">
-            <p>
-            Travel with ease and confidence – from planning to arrival, our
-            personalized services ensure a smooth, comfortable, and
-            unforgettable experience.
-            </p>
-        </div>
-        </div>
-        <div class="service-card">
-        <div
-            class="service-image"
-            style="background-image: url('src/images/services/services-2.webp')"
-        >
-            <h3 class="service-content-title">Specialized Services</h3>
-        </div>
-        <div class="service-content">
-            <p>
-            From Nikkah ceremonies to medical tourism, we offer specialized
-            services tailored to your purpose, with care and professionalism!
-            </p>
-        </div>
-        </div>
-        <div class="service-card">
-        <div
-            class="service-image"
-            style="background-image: url('src/images/services/services-3.webp')"
-        >
-            <h3 class="service-content-title">General Services</h3>
-        </div>
-        <div class="service-content">
-            <p>
-            Experience smooth, customized travel planning with services
-            designed to make your journey to Iran effortless, memorable, and
-            uniquely yours!
-            </p>
-        </div>
-        </div>
-    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div
+    class="xl:w-[65%] bg-[#007a7a] px-10 py-15 flex flex-col gap-8 xl:flex-row xl:justify-between">
+    {services.map((service) => (
+      <ServiceCard {...service} />
+    ))}
+  </div>
 </section>

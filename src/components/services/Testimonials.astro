@@ -1,118 +1,40 @@
-<style>
-	.testimonials-section {
-  position: relative;
-  min-height: 600px;
-  background: url("/src/images/services/testimonials-bg.jpg") no-repeat center
-    center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  color: white;
-}
+---
+import TestimonialCard from "./TestimonialCard.astro";
 
-/* .testimonials-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-} */
+const testimonials = [
+  {
+    text:
+      "NHM Travels made our ziyarat trip smooth, respectful, and deeply spiritual—every detail was taken care of. Highly recommended!",
+    author: "Fatima Jafri, Toronto",
+  },
+  {
+    text:
+      "From transport to accommodation, everything was organized with care and professionalism. I felt safe and spiritually connected throughout.",
+    author: "Ali Raza Mehdi, London",
+  },
+  {
+    text:
+      "Traveling with NHM was like being with family. They understood our values, respected our time for ibadah, and made the whole experience unforgettable.",
+    author: "Zahra Hussain, Sydney",
+  },
+];
+---
 
-.testimonials-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-  z-index: 2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+<section
+  class="relative min-h-150 bg-[url('/src/images/services/testimonials-bg.jpg')] bg-cover bg-center flex flex-col items-center justify-center px-6 py-16 text-white">
+  <!-- Optional dark overlay -->
+  <div class="absolute inset-0 bg-black/40"></div>
 
-.testimonials-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  max-width: 1200px;
-  z-index: 2;
-}
+  <!-- Content -->
+  <div class="relative z-10 w-full flex flex-col items-center">
+    <h2 class="mb-10 text-center text-5xl font-bold drop-shadow-md max-md:text-4xl">
+      What Our <span>Clients Say</span>
+    </h2>
 
-.testimonial-card {
-  width: 300px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.stars {
-  /* color: #ffd700; */
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  letter-spacing: 3px;
-}
-
-.testimonial-text {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.testimonial-author {
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-@media (max-width: 1200px) {
-  .testimonials-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .testimonial-card {
-    width: 100%;
-    max-width: 350px;
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonials-title {
-    font-size: 2.5rem;
-  }
-}
-</style>
-
-<section class="testimonials-section">
-		<h2 class="testimonials-title">What Our <span>Clients Say</span></h2>
-		<div class="testimonials-container">
-			<div class="testimonial-card">
-			<div class="stars">★★★★★</div>
-			<p class="testimonial-text">
-				NHM Travels made our ziyarat trip smooth, respectful, and deeply
-				spiritual—every detail was taken care of. Highly recommended!
-			</p>
-			<p class="testimonial-author">Fatima Jafri, Toronto</p>
-			</div>
-			<div class="testimonial-card">
-			<div class="stars">★★★★★</div>
-			<p class="testimonial-text">
-				From transport to accommodation, everything was organized with care
-				and professionalism. I felt safe and spiritually connected
-				throughout.
-			</p>
-			<p class="testimonial-author">Ali Raza Mehdi, London</p>
-			</div>
-			<div class="testimonial-card">
-			<div class="stars">★★★★★</div>
-			<p class="testimonial-text">
-				Traveling with NHM was like being with family. They understood our
-				values, respected our time for ibadah, and made the whole experience
-				unforgettable.
-			</p>
-			<p class="testimonial-author">Zahra Hussain, Sydney</p>
-			</div>
-		</div>
-		</section>
+    <div class="flex gap-8 max-w-300 justify-center flex-wrap">
+      {testimonials.map((t) => (
+        <TestimonialCard {...t} />
+      ))}
+    </div>
+  </div>
+</section>
