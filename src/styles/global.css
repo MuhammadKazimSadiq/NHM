@@ -41,3 +41,56 @@ img {
   max-width: 100%;
   display: block;
 }
+/* scroll animations */
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.transition-soft {
+  animation: fadeUpSoft 1s ease-out both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 45%;
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.transition-right {
+  animation: fadeRight 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.transition-left {
+  animation: fadeLeft 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}

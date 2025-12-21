@@ -1,26 +1,96 @@
 ---
-import { Image } from "astro:assets"
-
+import { Image } from "astro:assets";
+import heroImg from "/src/images/services/hero.jpg";
 ---
 
-<section
-  class="relative h-screen bg-[url('/src/images/services/hero.jpg')] bg-cover bg-center flex flex-col justify-end p-5 text-white">
-  <!-- Logo -->
+<section class="relative h-screen overflow-hidden text-white">
+  <!-- Parallax image -->
+  <div
+    id="services-parallax"
+    class="absolute inset-0 will-change-transform"
+  >
+    <Image
+      src={heroImg}
+      alt="NHM Travels services hero"
+      priority
+      sizes="100vw"
+      class="hero-image h-[120%] w-full object-cover"
+    />
+  </div>
 
-  <!-- Hero content -->
-  <div class="max-w-full">
+  <!-- Gradient overlay -->
+  <div
+    class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.55),rgba(0,0,0,0.45))]"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex h-full flex-col justify-end p-5">
     <h1
-      class="max-w-225 text-[5rem] font-bold leading-tight mb-5 drop-shadow-md max-xl:text-[4rem] max-md:text-[2.5rem]">
+      class="max-w-225 mb-5 text-[5rem] font-bold leading-tight drop-shadow-md max-xl:text-[4rem] max-md:text-[2.5rem]"
+    >
       Answer the call, leave everything behind.
     </h1>
 
     <div class="flex justify-end">
       <a
         href="#"
-        class="inline-block mr-12 mb-12 rounded-full bg-[#0dbdad] px-6 py-3 font-light text-white transition-all duration-300 hover:bg-[#27ae60] hover:-translate-y-0.5"
+        class="mr-12 mb-12 inline-block rounded-full bg-[#0dbdad] px-6 py-3 font-light text-white transition hover:-translate-y-0.5 hover:bg-[#27ae60]"
       >
         BOOK NOW →
       </a>
     </div>
   </div>
 </section>
+
+<style>
+.hero-image {
+  transition: opacity 0.25s linear;
+}
+</style>
+
+<script>
+(() => {
+  const parallax = document.getElementById(
+    "services-parallax"
+  ) as HTMLDivElement | null;
+
+  if (!parallax) return;
+
+  // Disable on mobile
+  if (window.matchMedia("(max-width: 768px)").matches) return;
+
+  // Respect reduced motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let latestScroll = 0;
+  let ticking = false;
+
+  const strength = 0.5;      // 🔥 strong parallax
+  const fadeDistance = 500;  // fade range
+
+  function update() {
+    if (!parallax) return;
+    const translateY = latestScroll * strength;
+
+    // Fade from 1 → 0.6
+    const opacity = Math.max(
+      0.6,
+      1 - latestScroll / fadeDistance
+    );
+
+    parallax.style.transform = `translateY(${translateY}px)`;
+    parallax.style.opacity = opacity.toString();
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    latestScroll = window.scrollY;
+
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  });
+})();
+</script>

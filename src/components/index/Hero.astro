@@ -1,23 +1,38 @@
 ---
-import Button from "../shared/Button.astro"
+import { Image } from "astro:assets";
+import Button from "../shared/Button.astro";
+import heroImg from "/src/images/index/hero.jpg";
 ---
 
-<header class="hero relative min-h-[85vh] md:min-h-screen bg-cover bg-center bg-[url(/src/images/index/hero.jpg)] text-white">
-  <div class="hero-overlay flex min-h-[85vh] md:min-h-screen flex-col bg-[linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0.8))]">
+<header class="relative min-h-[85vh] md:min-h-screen overflow-hidden text-white">
+  <!-- Parallax image -->
+  <div
+    id="hero-parallax"
+    class="absolute inset-0 will-change-transform"
+  >
+    <Image
+      src={heroImg}
+      alt="Iran travel landscape"
+      priority
+      class="hero-image h-[120%] w-full object-cover"
+    />
+  </div>
 
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0.8))]"></div>
 
-
-    <div class="hero-content container flex flex-1 flex-col justify-center pb-20">
-      <p class="hero-kicker mb-8 text-base uppercase tracking-[0.16em] text-[#f3e3c6]">
+  <!-- Content -->
+  <div class="relative flex min-h-[85vh] md:min-h-screen flex-col">
+    <div class="container flex flex-1 flex-col justify-center pb-20">
+      <p class="mb-8 uppercase tracking-[0.16em] text-[#f3e3c6]">
         Discover Iran with
       </p>
 
-      <h1
-        class="font-heading mb-3 text-[clamp(2.6rem,4vw,3.6rem)] drop-shadow-[0_12px_32px_rgba(0,0,0,0.9)]">
+      <h1 class="mb-3 font-heading text-[clamp(2.6rem,4vw,3.6rem)] drop-shadow-[0_12px_32px_rgba(0,0,0,0.9)]">
         Timeless Journeys Through Iran
       </h1>
 
-      <p class="hero-subtitle mb-7 max-w-130 text-base text-gray-100">
+      <p class="mb-7 max-w-xl text-gray-100">
         From ancient cities to desert skies, experience the depth of Persian
         culture with curated itineraries by NHM Travels.
       </p>
@@ -28,3 +43,54 @@ import Button from "../shared/Button.astro"
     </div>
   </div>
 </header>
+
+<style>
+.hero-image {
+  transition: opacity 0.25s linear;
+}
+</style>
+
+<script>
+(() => {
+  const parallax = document.getElementById("hero-parallax") as HTMLDivElement | null;
+  if (!parallax) return;
+
+  // Disable on mobile
+  if (window.matchMedia("(max-width: 768px)").matches) return;
+
+  // Respect reduced motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let latestScroll = 0;
+  let ticking = false;
+
+  const strength = 0.5; 
+  const fadeDistance = 500; 
+
+  function update() {
+    if (!parallax) return;
+    
+    const translateY = latestScroll * strength;
+
+    // Fade from 1 → 0.6 smoothly
+    const opacity = Math.max(
+      0.6,
+      1 - latestScroll / fadeDistance
+    );
+
+    parallax.style.transform = `translateY(${translateY}px)`;
+    parallax.style.opacity = opacity.toString();
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    latestScroll = window.scrollY;
+
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  });
+})();
+</script>

@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import '../styles/global.css';
 import Header from '../components/shared/Header.astro';
 
@@ -16,7 +17,7 @@ const { title = "NHM Travels", description = "Timeless Journeys Through Iran" } 
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
@@ -25,14 +26,14 @@ const { title = "NHM Travels", description = "Timeless Journeys Through Iran" } 
         <meta property="og:url" content={Astro.url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={new URL("/favicon.svg", Astro.url)} />
+        <meta property="og:image" content={new URL("/favicon.png", Astro.url)} />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={Astro.url} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={new URL("/favicon.svg", Astro.url)} />
+        <meta property="twitter:image" content={new URL("/favicon.png", Astro.url)} />
 
         <!-- Sitemap -->
         <link rel="sitemap" href="/sitemap-index.xml" />
@@ -42,6 +43,7 @@ const { title = "NHM Travels", description = "Timeless Journeys Through Iran" } 
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
             rel="stylesheet"
         />
+        <ClientRouter/>
 	</head>
 	<body>
         <Header />
