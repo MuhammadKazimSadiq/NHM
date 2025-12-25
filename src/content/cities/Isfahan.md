@@ -1,6 +1,6 @@
 ---
 title: Isfahan
-heroImage: /src/images/city/isfahan/hero.jpeg
+heroImage: ../../images/city/isfahan/hero.jpeg
 
 descriptionTitle: Isfahan
 descriptionText: >
@@ -11,25 +11,25 @@ descriptionImage: /src/images/city/isfahan/description.jpg
 featured:
   - title: Naqsh Jahan Square
     description: A grand plaza surrounded by mosques, palaces, and shops, ideal for strolling.
-    img: /src/images/city/isfahan/featured-1.jpg
+    img: ../../images/city/isfahan/featured-1.jpg
     alt: Naqsh Jahan Square
   - title: Chehel Sotoun Palace
     description: Historic pavilion with gardens and vibrant wall paintings.
-    img: /src/images/city/isfahan/featured-2.jpg
+    img: ../../images/city/isfahan/featured-2.jpg
     alt: Chehel Sotoun Palace
   - title: Zayandeh River Bridges
     description: Iconic bridges like Si‑o‑se‑pol, beautifully lit for evening walks.
-    img: /src/images/city/isfahan/featured-3.jpg
+    img: ../../images/city/isfahan/featured-3.jpg
     alt: Zayandeh River Bridges
 
 gallery:
-  - src: /src/images/city/isfahan/gallery-1.jpg
+  - src: ../../images/city/isfahan/gallery-1.jpg
     alt: "Naqsh-e Jahan Square in Isfahan"
     text: Each corner feels like a masterpiece, where history and beauty speak the same language.
-  - src: /src/images/city/isfahan/gallery-2.jpeg
+  - src: ../../images/city/isfahan/gallery-2.jpeg
     alt: "Historic architecture of Isfahan"
-  - src: /src/images/city/isfahan/gallery-3.jpeg
+  - src: ../../images/city/isfahan/gallery-3.jpeg
     alt: "Evening view of Isfahan city"
-  - src: /src/images/city/isfahan/gallery-4.jpeg
+  - src: ../../images/city/isfahan/gallery-4.jpeg
     alt: "Persian design details in Isfahan"
 ---
