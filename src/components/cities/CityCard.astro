@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { img, alt, title, description } = Astro.props;
+const { img, alt, href, title, description } = Astro.props;
 ---
 
 <article
@@ -16,7 +16,7 @@ const { img, alt, title, description } = Astro.props;
   <!-- Text -->
   <div>
     <a
-      href={`cities/${title.toLowerCase()}`}
+      href={href}
       class=" font-heading font-semibold text-xl text-neutral-900 underline mb-1.5">
       {title}
   </a>
