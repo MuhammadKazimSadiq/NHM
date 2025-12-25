@@ -1,35 +1,24 @@
 ---
 import { Image } from "astro:assets";
 import Button from "../shared/Button.astro";
-
-import heroImg from "/src/images/index/hero.jpg";
+import image from "/src/images/index/cta.jpg";
 ---
 
-<section class="relative overflow-hidden text-white transition-soft">
-  <!-- Background image -->
+<section class="relative overflow-hidden text-white h-120 flex items-center justify-center">
   <Image
-    src={heroImg}
+    src={image}
     alt="Travel destination background"
     class="absolute inset-0 h-full w-full object-cover"
     priority
   />
 
-  <!-- Gradient overlay -->
-  <div class="absolute inset-0 bg-linear-to-br from-black/70 to-black/45"></div>
+  <!-- <div class="absolute inset-0 bg-linear-to-br from-black/70 to-black/45"></div> -->
 
-  <!-- Content -->
-  <div class="relative py-18">
-    <div class="container text-center">
-      <h2 class="mb-3 text-3xl font-heading">
-        Book your next trip with us
-      </h2>
-
-      <p class="mx-auto my-7 max-w-xl text-base text-gray-100">
-        Share your travel dates and interests, and our specialists will
-        design a proposal tailored to you within 48 hours.
-      </p>
-
-      <Button variant="primary">Start Planning</Button>
-    </div>
+  <div class="container text-center relative z-10">
+    <h2 class="mb-3 text-3xl lg:text-4xl font-heading">
+      Book your next trip with us
+    </h2>
   </div>
 </section>
+
+

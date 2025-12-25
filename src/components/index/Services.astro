@@ -3,63 +3,60 @@ import ServiceCard from "./ServiceCard.astro"
 
 const services = [
   {
-    icon: "✦",
-    title: "Tailor-Made Itineraries",
+    img: "/src/images/index/service-1.jpg",
+    alt: "General Services",
+    title: "General Services",
+    subtitle: "Smooth, Custom services",
     items: [
-      "Custom routes and flexible travel dates",
-      "Handpicked boutique stays and eco-lodges",
-      "Private guides, drivers and local experts",
-    ],
+      "Meet and greet",
+      "Multilingual Staff",
+      "Hotel Bookings",
+      "Tourism",
+      "Transportation"
+    ]
   },
   {
-    icon: "✈",
-    title: "Guided Group Tours",
+    img: "/src/images/index/service-2.jpg",
+    alt: "Specialized Package",
+    title: "Specialized Package",
+    subtitle: "Tailored to your purposes",
     items: [
-      "Small groups for a more personal feel",
-      "Themed departures focused on culture and nature",
-      "All logistics handled from arrival to departure",
-    ],
+      "Nikah ceremonies",
+      "Honeymoon",
+      "Medical Tourism",
+      "Company Registration",
+      "Property Services"
+    ]
   },
   {
-    icon: "❤",
-    title: "On-Trip Support",
+    img: "/src/images/index/service-3.jpg",
+    alt: "Customized Package",
+    title: "Customized Package",
+    subtitle: "Smooth and comfortable",
     items: [
-      "24/7 assistance during your journey",
-      "Restaurant and activity recommendations and bookings",
-      "Help with changes, extensions or emergencies",
-    ],
-  },
+      "Airport transfers and transportation",
+      "Ticketing and Visa services",
+      "Atraf Ziyarah",
+      "Transportation"
+    ]
+  }
 ];
 ---
 
 <section
   id="services"
-  class="bg-neutral-100 py-20 transition-soft"
+  class="bg-[#5a422f] py-20 transition-soft"
 >
   <div class="container">
     <!-- Header -->
     <header class="mb-12 text-center">
-      <h2
-        class="
-          font-heading
-          text-3xl
-          font-bold
-          text-neutral-800
-          md:text-[2.6rem]
-        "
-      >
+      <h2 class="font-heading text-4xl font-bold text-white md:text-[4rem]">
         Our Services
       </h2>
     </header>
 
     <!-- Grid -->
-    <div
-      class="
-        grid gap-6
-        sm:grid-cols-2
-        lg:grid-cols-3
-      "
-    >
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 justify-center">
       {services.map((service) => (
         <ServiceCard {...service} />
       ))}
