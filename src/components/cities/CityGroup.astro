@@ -4,12 +4,13 @@ import CityCard from "./CityCard.astro";
 const { cities, variant = "light" } = Astro.props;
 
 const bgClass =
-  variant === "beige" ? "bg-(--bg-beige)" : "bg-white";
+  variant === "light" ? "bg-(--bg-light)" : "bg-(--bg-dark)";
 ---
 
 <style>
 :root {
-    --bg-beige: #f9f5ef;
+    --bg-light: #fdf6ea;
+    --bg-dark: #e2c297;
 }
 </style>
 
