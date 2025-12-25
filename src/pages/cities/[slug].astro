@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/city/Hero.astro";
+import { getCollection } from "astro:content";
+import Description from "../../components/city/Description.astro";
+import Featured from "../../components/city/Featured.astro";
+import Gallery from "../../components/city/Gallery.astro";
+
+export async function getStaticPaths() {
+  const cities = await getCollection("cities");
+
+  return cities.map(city => ({
+    params: { slug: city.slug },
+    props: { city },
+  }));
+}
+
+const { city } = Astro.props;
+const {
+  title,
+  heroImage,
+  descriptionTitle,
+  descriptionText,
+  descriptionImage,
+  featured,
+  gallery
+} = city.data;
+---
+
+<Layout title={title}>
+    <Hero img={heroImage} imgAlt={title} title={title} />
+    <Description img={descriptionImage} imgAlt={title} title={descriptionTitle} text={descriptionText} />
+    <Featured featured={featured} />
+    <Gallery gallery={gallery} />
+</Layout>

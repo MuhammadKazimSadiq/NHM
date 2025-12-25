@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets"
+const {gallery} = Astro.props
+---
+
+<section class="pt-24 pb-4">
+  <div class="mx-auto px-8 grid grid-cols-1 md:grid-cols-12 gap-4">
+
+    {gallery.map((item, index) => (
+      <div
+        class={`relative overflow-hidden rounded-xl
+          ${index === 0
+            ? "h-120 md:col-span-12"
+            : "h-200 md:col-span-4"
+          }
+        `}
+      >
+
+        <img
+          src={item.src}
+          alt={item.alt}
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {index === 0 && item.text && (
+          <>
+            <div class="absolute inset-0 bg-black/40"></div>
+
+            <div class="absolute inset-0 flex items-start justify-center z-10 px-6">
+              <h2 class="text-white text-2xl md:text-3xl text-center tracking-wide mt-8 w-3/4 font-heading leading-loose">
+                {item.text}
+              </h2>
+            </div>
+          </>
+        )}
+      </div>
+    ))}
+
+  </div>
+</section>
+
+
