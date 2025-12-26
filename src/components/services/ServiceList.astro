@@ -26,9 +26,9 @@ const services = [
 ];
 ---
 
-<section class="flex min-h-150 flex-col xl:flex-row transition-soft">
+<section class="flex min-h-150 flex-col xl:flex-row transition-soft bg-[#e1a730]">
   <!-- LEFT PANEL -->
-  <div class="xl:w-[35%] bg-[#e1a730] px-10 py-15 flex flex-col justify-between">
+  <div class="xl:w-[35%] bg-[#e1a730] px-12 py-15 flex flex-col justify-between">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
@@ -39,11 +39,10 @@ const services = [
 
     <div>
       <h2 class="text-5xl font-bold leading-tight text-black">
-        Leave<br />
-        <em class="italic">it to us!</em>
+        Leave <em class="italic">it to us!</em>
       </h2>
 
-      <p class="mt-5 text-lg text-black/90">
+      <p class="mt-5 text-xl text-black/90">
         NHM Travels offers tailored, spiritually enriching travel experiences
         across Iran, helping you explore sacred sites, natural beauty, and rich
         cultural heritage with ease and authenticity.
@@ -53,7 +52,7 @@ const services = [
 
   <!-- RIGHT PANEL -->
   <div
-    class="xl:w-[65%] bg-[#007a7a] px-10 py-15 flex flex-col gap-8 xl:flex-row xl:justify-between">
+    class="xl:w-[65%] bg-[#007a7a] px-10 py-15 flex flex-col gap-8 xl:flex-row xl:justify-between xl:mr-12">
     {services.map((service) => (
       <ServiceCard {...service} />
     ))}
