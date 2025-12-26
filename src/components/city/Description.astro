@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 const {title, text, img, imgAlt} = Astro.props;
+import LocationIcon from "../../images/city/location-icon.svg"
 ---
 
   <section class="py-24">
@@ -8,7 +9,7 @@ const {title, text, img, imgAlt} = Astro.props;
 
       <div>
         <Image
-                src="/src/images/city/location-icon.svg"
+                src={LocationIcon}
                 alt="location-icon"
                 width="48"
                 height="48"
