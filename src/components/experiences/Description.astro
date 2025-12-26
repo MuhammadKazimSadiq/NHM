@@ -1,11 +1,37 @@
+---
+import { Image } from "astro:assets";
+import experienceImage from "../../images/experiences/description.webp";
+---
+<svg width="0" height="0" class="absolute">
+  <defs>
+    <clipPath id="arch-clip" clipPathUnits="objectBoundingBox">
+      <path
+        d="M0.87,0.115
+           C0.77,0.043 0.64,0 0.5,0
+           C0.36,0 0.23,0.043 0.13,0.115
+           L0,0.115
+           L0,0.885
+           L0.13,0.885
+           C0.23,0.957 0.36,1 0.5,1
+           C0.64,1 0.77,0.957 0.87,0.885
+           L1,0.885
+           L1,0.115
+           Z"
+      />
+    </clipPath>
+  </defs>
+</svg>
+
 <section class="bg-[#032b22] py-32 max-md:py-12 transition-soft">
   <div class="container mx-auto px-4">
     <div
-      class="grid grid-cols-2 items-center gap-20 max-lg:gap-12 max-md:grid-cols-1 max-md:gap-8">
+      class="grid grid-cols-2 items-center gap-20 max-lg:gap-12 max-md:grid-cols-1 max-md:gap-8"
+    >
       <!-- TEXT COLUMN -->
       <div class="pr-12 max-md:pr-0 max-md:order-2 text-center">
         <h2
-          class="font-heading font-bold leading-[1.4] text-white opacity-95 text-[clamp(18px,3.6vw,60px)]">
+          class="font-heading font-bold leading-[1.4] text-white opacity-95 text-[clamp(18px,3.6vw,60px)]"
+        >
           Unforgettable experiences across Iran
         </h2>
 
@@ -16,19 +42,26 @@
           Iran offers travelers a mosaic of adventures.<br />
           Whether you're sailing in Ramsar, exploring<br />
           Persepolis, or wandering through Tehran's ancient<br />
-          bazaar, each city reveals a unique story. These<br />
-          featured experiences invite you to discover Iran's<br />
-          natural beauty, cultural depth, and timeless history.
+          bazaar, each city reveals a unique story.
         </p>
       </div>
 
       <!-- IMAGE COLUMN -->
       <div class="relative max-md:order-1">
         <div
-          class="w-full h-100 rounded-lg overflow-hidden shadow-xl
-            [clip-path:polygon(0%_22%,6%_22%,14%_17%,23%_12%,32%_8%,41%_4%,50%_1%,59%_4%,68%_8%,77%_12%,86%_17%,94%_22%,100%_22%,100%_78%,94%_78%,86%_83%,77%_88%,68%_92%,59%_96%,50%_99%,41%_96%,32%_92%,23%_88%,14%_83%,6%_78%,0%_78%)]
-            bg-[url('/src/images/experiences/description.webp')] bg-cover bg-center"
+          class="relative w-full h-130 overflow-hidden shadow-xl
+                 [clip-path:url(#arch-clip)]"
         >
+          <Image
+            src={experienceImage}
+            alt="Experiences across Iran"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            widths={[480, 768, 1024, 1440]}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+
+          <!-- Gradient Overlay -->
           <div
             class="absolute inset-0 bg-[linear-gradient(45deg,rgba(44,85,48,0.3),rgba(139,0,0,0.2))]"
           ></div>

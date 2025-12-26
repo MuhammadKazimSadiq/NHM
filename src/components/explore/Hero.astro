@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import heroImg from "/src/images/cities/hero.jpg";
+---
+
+<header class="relative min-h-[95vh] overflow-hidden text-white">
+  <!-- Parallax image -->
+  <div
+    id="cities-hero-parallax"
+    class="absolute inset-0 will-change-transform"
+  >
+    <!-- <Image
+      src={heroImg}
+      alt="Explore cities of Iran"
+      priority
+      sizes="100vw"
+      class="h-[120%] w-full object-cover"
+    /> -->
+    <video src="/videos/explore.mp4"
+      class="h-[120%] w-full object-cover"
+      autoplay
+      loop>
+    </video>
+  </div>
+
+  <!-- Gradient overlay -->
+  <!-- <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.55),rgba(0,0,0,0.45))]"></div> -->
+
+  <!-- Content -->
+  <div
+    class="relative flex min-h-[95vh] items-end justify-start px-12 py-16 max-[520px]:px-5 max-[520px]:py-12"
+  >
+    <h1
+      class="font-heading font-bold leading-[1.4] text-[clamp(3rem,7vw,8rem)] drop-shadow-[0_12px_32px_rgba(0,0,0,0.85)] ml-16"
+    >
+      Explore Iran<br />
+      to its fullest
+    </h1>
+  </div>
+</header>
+
+<script>
+(() => {
+  const parallax = document.getElementById(
+    "cities-hero-parallax"
+  ) as HTMLDivElement | null;
+
+  if (!parallax) return;
+
+  // Disable on mobile
+  if (window.matchMedia("(max-width: 768px)").matches) return;
+
+  // Respect reduced motion
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  let latestScroll = 0;
+  let ticking = false;
+
+  const strength = 0.45; // strong but smooth
+  const fadeDistance = 450;
+
+  function update() {
+     if (!parallax) return;
+    const translateY = latestScroll * strength;
+
+    // Fade from 1 → 0.65
+    const opacity = Math.max(
+      0.65,
+      1 - latestScroll / fadeDistance
+    );
+
+    parallax.style.transform = `translateY(${translateY}px)`;
+    parallax.style.opacity = opacity.toString();
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    latestScroll = window.scrollY;
+
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  });
+})();
+</script>

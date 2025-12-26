@@ -9,17 +9,23 @@ import heroImg from "/src/images/experiences/hero.jpg";
     id="experiences-hero-parallax"
     class="absolute inset-0 will-change-transform"
   >
-    <Image
+    <!-- <Image
       src={heroImg}
       alt="Featured experiences in Iran"
       priority
       sizes="100vw"
       class="h-[120%] w-full object-cover"
-    />
+    /> -->
+
+    <video src="/videos/featured-experiences.mp4"
+      class="h-[120%] w-full object-cover"
+      autoplay
+      loop>
+    </video>
   </div>
 
   <!-- Overlay -->
-  <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1))]"></div>
+  <!-- <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1))]"></div> -->
 
   <!-- Content -->
   <div class="relative z-10 container mx-auto flex w-full items-center justify-center px-4 text-center">
