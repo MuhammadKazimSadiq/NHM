@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
-import netlify from "@astrojs/netlify";
+// import netlify from "@astrojs/netlify";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -15,6 +15,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  adapter: netlify(),
+  // adapter: netlify(),
   integrations: [sitemap()],
 });

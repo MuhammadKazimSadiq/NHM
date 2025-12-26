@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 
-const { img, imgAlt, title, description } = Astro.props
+const { img, imgAlt, href, title, description } = Astro.props
 ---
 
 <style>
@@ -21,10 +21,11 @@ const { img, imgAlt, title, description } = Astro.props
   </div>
 
   <div class=" flex-1 bg-(--card-bg-color) p-5.5">
-    <h3
-      class=" mb-2.5 mt-3 text-center font-heading text-[1.4rem] text-(--card-title-color) underline">
+    <a
+      href={href}
+      class="block mb-2.5 mt-3 text-center font-heading text-[1.4rem] text-(--card-title-color) underline">
       {title}
-    </h3>
+  </a>
 
     <p
       class=" m-0 text-center font-body text-base leading-[1.6] text-white">

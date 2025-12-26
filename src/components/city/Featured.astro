@@ -1,13 +1,13 @@
 ---
 import ExperienceCard from "../experiences/ExperienceCard.astro";
-const {featured} = Astro.props
+const { featured } = Astro.props;
 ---
 
 <section class="bg-[#2f1f16] py-24">
-    <h1 class="font-heading font-bold text-6xl text-center mb-12 text-white">Featured Experiences</h1>
-    <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-10">
-        {featured.map(city => (
-        <ExperienceCard {...city} />
-        ))}
-    </div>
+  <h1 class="font-heading font-bold text-6xl text-center mb-12 text-white">Featured Experiences</h1>
+  <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-3 gap-10">
+    {featured.map(item => (
+      <ExperienceCard {...item} />
+    ))}
+  </div>
 </section>

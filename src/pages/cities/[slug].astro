@@ -1,21 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Hero from "../../components/city/Hero.astro";
-import { getCollection } from "astro:content";
 import Description from "../../components/city/Description.astro";
 import Featured from "../../components/city/Featured.astro";
 import Gallery from "../../components/city/Gallery.astro";
 
-export async function getStaticPaths() {
-  const cities = await getCollection("cities");
+import { cities } from '../../data/cities/index';
 
-  return cities.map(city => ({
-    params: { slug: city.slug },
-    props: { city },
-  }));
+export async function getStaticPaths() {
+  return cities.map(city => ({ params: { slug: city.slug } }));
 }
 
-const { city } = Astro.props;
+const { slug } = Astro.params;
+const city = cities.find(c => c.slug === slug);
+
+if (!city) throw new Error(`City not found: ${slug}`);
+
+
 const {
   title,
   heroImage,
@@ -24,12 +25,12 @@ const {
   descriptionImage,
   featured,
   gallery
-} = city.data;
+} = city;
 ---
 
 <Layout title={title}>
     <Hero img={heroImage} imgAlt={title} title={title} />
     <Description img={descriptionImage} imgAlt={title} title={descriptionTitle} text={descriptionText} />
     <Featured featured={featured} />
-    <Gallery gallery={gallery} />
+    <Gallery gallery={gallery} /> 
 </Layout>
