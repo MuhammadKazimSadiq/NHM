@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 const { img, alt, title, subtitle, items } = Astro.props;
 ---
 
-<div class="max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
+<div class="max-w-sm bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col fade-in" style="animation-delay: calc(sibling-index() * 100ms);">
   <!-- Image section -->
   <div class="relative h-60">
     <Image src={img} alt={alt} class="block h-60 w-full object-cover" />

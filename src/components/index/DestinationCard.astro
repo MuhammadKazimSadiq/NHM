@@ -15,7 +15,8 @@ const { img, imgAlt, href, title, description } = Astro.props
   class="group flex h-full flex-col overflow-hidden rounded-xl bg-white
          shadow-md transition-all duration-300 ease-out
          hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl
-         motion-reduce:transition-none">
+         motion-reduce:transition-none
+         fade-left" style="animation-delay: calc(sibling-index() * 100ms);">
   <div>
     <Image src={img} alt={imgAlt} class="block h-50 w-full object-cover rounded-t-xl" />
   </div>
@@ -23,12 +24,12 @@ const { img, imgAlt, href, title, description } = Astro.props
   <div class=" flex-1 bg-(--card-bg-color) p-5.5">
     <a
       href={href}
-      class="block mb-2.5 mt-3 text-center font-heading text-[1.4rem] text-(--card-title-color) underline">
+      class="block mb-2.5 mt-3 text-center font-heading text-2xl text-(--card-title-color) underline">
       {title}
   </a>
 
     <p
-      class=" m-0 text-center font-body text-base leading-[1.6] text-white">
+      class="m-0 text-center font-body text-base leading-[1.6] text-white">
       {description}
     </p>
   </div>

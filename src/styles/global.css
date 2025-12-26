@@ -9,12 +9,19 @@
 }
 
 @theme {
+  /* font families */
   --font-heading: "tan-ashford", serif;
   --font-body: "Montserrat", sans-serif;
+
+  /* text sizes */
+  --text-hero-heading: clamp(2.4rem, 5.8vw, 6.5rem);
+  --text-heading-xl: clamp(2.5rem, 5vw, 4.5rem);
+  --text-section-heading: clamp(2rem, 5.5vw, 4.5rem);
 }
 
 :root {
   --color-accent: #d4972c;
+  --animation-sibling-100: calc(sibling-index() * 100ms);
 }
 
 *,
@@ -41,12 +48,49 @@ img {
   max-width: 100%;
   display: block;
 }
-/* scroll animations */
+/* ==========================
+   Scroll Animations (Play Once)
+   ========================== */
+
+/* Base hidden state */
+.fade-up-soft,
+.fade-right,
+.fade-left,
+.fade-in {
+  opacity: 0;
+  transition: none;
+}
+
+/* Direction defaults */
+.fade-up-soft {
+  transform: translateY(25px);
+}
+
+.fade-right {
+  transform: translateX(20px);
+}
+
+.fly-right {
+  transform: translateX(80px);
+}
+
+.fade-left {
+  transform: translateX(-20px);
+}
+
+.fly-left {
+  transform: translateX(-80px);
+}
+
+/* ==========================
+   Keyframes
+   ========================== */
+
 @keyframes fadeUpSoft {
   from {
     opacity: 0;
-    transform: translateY(50px);
-    filter: blur(6px);
+    transform: translateY(25px);
+    filter: blur(3px);
   }
   to {
     opacity: 1;
@@ -55,13 +99,18 @@ img {
   }
 }
 
-.transition-soft {
-  animation: fadeUpSoft 1s ease-out both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 45%;
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-@keyframes fadeRight {
+@keyframes flyRight {
   from {
     opacity: 0;
     transform: translateX(80px);
@@ -72,13 +121,18 @@ img {
   }
 }
 
-.transition-right {
-  animation: fadeRight 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-@keyframes fadeLeft {
+@keyframes flyLeft {
   from {
     opacity: 0;
     transform: translateX(-80px);
@@ -89,8 +143,43 @@ img {
   }
 }
 
-.transition-left {
-  animation: fadeLeft 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-  animation-timeline: view();
-  animation-range: entry 0% cover 40%;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================
+   Triggered Animations
+   ========================== */
+
+.scroll-animate.fade-up-soft {
+  animation: fadeUpSoft 1s ease-out forwards;
+}
+
+.scroll-animate.fade-right {
+  animation: fadeRight 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.scroll-animate.fly-right {
+  animation: flyRight 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.scroll-animate.fade-left {
+  animation: fadeLeft 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.scroll-animate.fly-left {
+  animation: flyLeft 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.scroll-animate.fade-in {
+  animation: fadeIn 0.9s ease-out forwards;
+}
+
+.scroll-animate.fade-in.slow {
+  animation: fadeIn 2.5s ease-out forwards;
 }

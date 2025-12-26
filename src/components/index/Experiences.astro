@@ -14,17 +14,17 @@ const experiences = [
 ];
 ---
 
-<section id="experiences" class="py-20 bg-white transition-soft">
+<section id="experiences" class="py-20 bg-white">
   <div class="container">
     <header class="text-center max-w-2xl mx-auto mb-12">
-      <h2 class="font-heading mb-2 leading-relaxed text-[clamp(1.5rem,5vw,3.75rem)]">
+      <h2 class="font-heading mb-2 leading-relaxed text-section-heading">
         Featured Experiences
       </h2>
     </header>
 
     <div class="experiences-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       {experiences.map((exp) => (
-        <div class="relative overflow-hidden rounded-3xl h-120 shadow-xl group">
+        <div class="relative overflow-hidden rounded-3xl h-120 shadow-xl group fade-in" style="animation-delay: calc(sibling-index() * 100ms);">
           <Image
             src={exp.img}
             alt={exp.label}

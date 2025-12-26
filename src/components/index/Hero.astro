@@ -1,91 +1,68 @@
 ---
 import { Image } from "astro:assets";
-import Button from "../shared/Button.astro";
 import heroImg from "/src/images/index/hero.jpg";
 ---
 
 <header class="relative min-h-[85vh] md:min-h-screen overflow-hidden text-white">
-  <!-- Parallax image -->
+  <!-- Parallax wrapper -->
   <div
     id="hero-parallax"
     class="absolute inset-0 will-change-transform"
   >
-    <video src="/videos/hero.mp4"
-        class="w-full object-cover"
+    <!-- Mobile image layer -->
+    <div class="absolute inset-0 block md:hidden">
+      <Image
+        src={heroImg}
+        alt="Iran travel landscape"
+        priority
+        class="h-[120%] w-full object-cover"
+      />
+    </div>
+
+    <!-- Desktop video layer -->
+    <div class="absolute inset-0 hidden md:block">
+      <video
+        class="h-[120%] w-full object-cover"
+        src="/videos/hero.mp4"
         autoplay
-        loop>
-    </video>
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster={heroImg.src}
+      ></video>
+    </div>
   </div>
 
-  <!-- Overlay -->
-  <!-- <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0.8))]"></div> -->
-
   <!-- Content -->
-  <div class="relative flex min-h-[85vh] md:min-h-screen flex-col">
+  <div class="relative z-10 flex min-h-[85vh] md:min-h-screen flex-col">
     <div class="container flex flex-1 flex-col justify-center pb-20">
-      <h1 class="mb-3 font-heading text-[clamp(2.6rem,6vw,7rem)] drop-shadow-[0_12px_32px_rgba(0,0,0,0.9)] text-center">
+      <h1 class="mb-3 font-heading text-hero-heading drop-shadow-[0_12px_32px_rgba(0,0,0,0.9)] text-center">
         Travel to Wonderful Iran
       </h1>
 
       <div class="flex justify-center">
         <button
           type="button"
-          class="inline-flex items-center justify-center rounded-lg text-2xl font-semibold tracking-[0.02em] px-12 py-4 bg-[#e1a730] text-black shadow-[0_12px_25px_rgba(0,0,0,0.18)] hover:-translate-y-px hover:shadow-[0_16px_32px_rgba(0,0,0,0.22)] transition-all duration-200 ease cursor-pointer">
+          class="
+            inline-flex items-center justify-center
+            rounded-lg
+            font-semibold tracking-[0.02em]
+            bg-[#e1a730] text-black
+            shadow-[0_10px_20px_rgba(0,0,0,0.18)]
+            transition-all duration-200 ease
+            cursor-pointer
+            text-base sm:text-lg md:text-xl
+            px-6 sm:px-8 md:px-12
+            py-3 sm:py-3.5 md:py-4
+            hover:-translate-y-px
+            hover:shadow-[0_16px_32px_rgba(0,0,0,0.22)]
+            active:translate-y-0
+            active:shadow-[0_8px_16px_rgba(0,0,0,0.18)">
           Book Now
         </button>
-      </div>
 
+      </div>
     </div>
   </div>
 </header>
-
-<style>
-.hero-image {
-  transition: opacity 0.25s linear;
-}
-</style>
-
-<script>
-(() => {
-  const parallax = document.getElementById("hero-parallax") as HTMLDivElement | null;
-  if (!parallax) return;
-
-  // Disable on mobile
-  if (window.matchMedia("(max-width: 768px)").matches) return;
-
-  // Respect reduced motion
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  let latestScroll = 0;
-  let ticking = false;
-
-  const strength = 0.5; 
-  const fadeDistance = 500; 
-
-  function update() {
-    if (!parallax) return;
-    
-    const translateY = latestScroll * strength;
-
-    // Fade from 1 → 0.6 smoothly
-    const opacity = Math.max(
-      0.6,
-      1 - latestScroll / fadeDistance
-    );
-
-    parallax.style.transform = `translateY(${translateY}px)`;
-    parallax.style.opacity = opacity.toString();
-
-    ticking = false;
-  }
-
-  window.addEventListener("scroll", () => {
-    latestScroll = window.scrollY;
-
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  });
-})();
-</script>

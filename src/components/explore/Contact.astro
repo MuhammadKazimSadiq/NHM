@@ -19,21 +19,25 @@ video {
 }
 </style>
 
-<section class="bg-(--bg-color) py-20 text-white">
-  <div
-    class="mx-auto flex max-w-350 gap-16 px-10 lg:flex-row flex-col">
+<section class="bg-[var(--bg-color)] py-16 md:py-20 text-white">
+  <div class="flex flex-col lg:flex-row max-w-7xl mx-auto gap-10 px-5 md:px-10">
     <!-- LEFT COLUMN -->
-    <div class="lg:w-3/4 w-full">
-      <div class="relative w-full">
+    <div class="w-full lg:w-3/4 relative">
+      <div class="w-full relative rounded-3xl overflow-hidden">
+        <!-- Video -->
         <video
           id="heroVideo"
           src="/videos/kish.mp4"
-          class="w-full rounded-3xl object-cover"
+          class="w-full h-auto md:h-100 lg:h-125 rounded-3xl object-cover"
+          muted
+          loop
+          playsinline
         ></video>
 
         <!-- Location Tag -->
         <div
-          class=" absolute flex items-center gap-2 rounded-full bg-black/45 px-4 py-2 text-base backdrop-blur-sm md:left-9 md:bottom-44 left-5 bottom-24">
+          class="absolute flex items-center gap-2 rounded-full bg-black/45 px-4 py-2 text-xs sm:text-sm md:text-base backdrop-blur-sm left-5 bottom-28 md:left-9 md:bottom-32"
+        >
           <span class="text-lg">📍</span>
           <span>Kish, Hormozgan Province</span>
         </div>
@@ -41,12 +45,12 @@ video {
         <!-- Play Button -->
         <div
           id="playBtn"
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-         <div
-            class="flex h-14 w-14 md:h-16 md:w-16 cursor-pointer items-center justify-center
-                  rounded-full bg-white/80 text-3xl md:text-4xl font-bold text-[#4c3a2f]
-                  shadow-lg backdrop-blur
-                  transition hover:scale-105 hover:bg-white"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <div
+            class="flex h-14 w-14 sm:h-16 sm:w-16 cursor-pointer items-center justify-center
+                   rounded-full bg-white/80 text-3xl sm:text-4xl font-bold text-[#4c3a2f]
+                   shadow-lg backdrop-blur transition hover:scale-105 hover:bg-white"
           >
             ▶
           </div>
@@ -54,7 +58,10 @@ video {
 
         <!-- Big Heading -->
         <h2
-          class="absolute max-w-125 font-heading font-bold leading-tight text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.8)] md:text-[2.8rem] text-[1.6rem] md:left-9 md:bottom-8 left-5 bottom-5"
+          class="absolute max-w-full font-heading font-bold leading-snug text-white
+                 drop-shadow-[0_8px_30px_rgba(0,0,0,0.8)]
+                 text-[1.5rem] sm:text-[2rem] md:text-[2.4rem]
+                 left-5 bottom-5 md:left-9 md:bottom-8"
         >
           Plan your next trip with us!
         </h2>
@@ -62,12 +69,12 @@ video {
     </div>
 
     <!-- RIGHT COLUMN -->
-    <div class="lg:w-1/4 w-full self-end text-left text-white">
-      <div class="mb-12">
-        <h3 class="mb-3 font-sans font-semibold md:text-[1.8rem] text-[1.4rem]">
+    <div class="w-full lg:w-1/4 self-end text-left text-white flex flex-col gap-8 mt-8 lg:mt-0">
+      <div>
+        <h3 class="mb-2 font-sans font-semibold text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem]">
           Address
         </h3>
-        <p class="leading-relaxed md:text-base text-base">
+        <p class="leading-relaxed text-base sm:text-base md:text-base">
           123 Anywhere St.<br />
           Any City, ST 12345<br />
           Iran
@@ -75,10 +82,10 @@ video {
       </div>
 
       <div>
-        <h3 class="mb-3 font-sans font-semibold md:text-[1.8rem] text-[1.4rem]">
+        <h3 class="mb-2 font-sans font-semibold text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem]">
           Contact
         </h3>
-        <p class="leading-relaxed md:text-base text-base">
+        <p class="leading-relaxed text-base sm:text-base md:text-base">
           Ghulam Abbas Esmail<br />
           Telephone:
           <a
@@ -94,3 +101,4 @@ video {
     </div>
   </div>
 </section>
+

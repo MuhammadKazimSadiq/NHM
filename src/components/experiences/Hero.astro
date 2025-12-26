@@ -3,44 +3,47 @@ import { Image } from "astro:assets";
 import heroImg from "/src/images/experiences/hero.jpg";
 ---
 
-<section class="relative flex min-h-screen overflow-hidden text-white max-md:min-h-150 max-md:py-12">
-  <!-- Parallax image -->
-  <div
-    id="experiences-hero-parallax"
-    class="absolute inset-0 will-change-transform"
-  >
-    <!-- <Image
-      src={heroImg}
-      alt="Featured experiences in Iran"
-      priority
-      sizes="100vw"
-      class="h-[120%] w-full object-cover"
-    /> -->
+<section class="relative flex min-h-screen overflow-hidden text-white max-md:min-h-[600px] max-md:py-12">
+  <!-- Parallax wrapper -->
+  <div id="experiences-hero-parallax" class="absolute inset-0 will-change-transform">
 
-    <video src="/videos/featured-experiences.mp4"
-      class="h-[120%] w-full object-cover"
-      autoplay
-      loop>
-    </video>
+    <!-- Mobile image -->
+    <div class="block md:hidden absolute inset-0">
+      <Image
+        src={heroImg}
+        alt="Featured experiences in Iran"
+        priority
+        sizes="100vw"
+        class="h-[120%] w-full object-cover"
+      />
+    </div>
+
+    <!-- Desktop video -->
+    <div class="hidden md:block absolute inset-0">
+      <video
+        src="/videos/featured-experiences.mp4"
+        class="h-[120%] w-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster={heroImg.src}
+      ></video>
+    </div>
+
   </div>
-
-  <!-- Overlay -->
-  <!-- <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1))]"></div> -->
 
   <!-- Content -->
   <div class="relative z-10 container mx-auto flex w-full items-center justify-center px-4 text-center">
-    <div>
+    <div class="fade-in slow">
       <!-- Eyebrow -->
-      <div
-        class="mb-2 text-xl font-light uppercase tracking-[0.18em] opacity-90 max-sm:text-xs max-sm:tracking-[0.12em]"
-      >
+      <div class="mb-2 text-xl font-light uppercase tracking-[0.18em] opacity-90 max-sm:text-xs max-sm:tracking-[0.12em]">
         EXPLORE
       </div>
 
       <!-- Title -->
-      <h1
-        class="font-heading mb-8 font-bold leading-[1.4] text-[clamp(20px,7vw,100px)] drop-shadow-[0_4px_25px_rgba(0,0,0,0.45)]"
-      >
+      <h1 class="font-heading mb-8 font-bold leading-[1.4] text-[clamp(20px,7vw,100px)] drop-shadow-[0_4px_25px_rgba(0,0,0,0.45)]">
         <span class="block">Featured</span>
         <span class="block">Experiences</span>
       </h1>
@@ -50,14 +53,8 @@ import heroImg from "/src/images/experiences/hero.jpg";
 
 <script>
 (() => {
-  const parallax = document.getElementById(
-    "experiences-hero-parallax"
-  ) as HTMLDivElement | null;
-
+  const parallax = document.getElementById("experiences-hero-parallax");
   if (!parallax) return;
-
-  // Disable on mobile
-  if (window.matchMedia("(max-width: 768px)").matches) return;
 
   // Respect reduced motion
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -65,28 +62,24 @@ import heroImg from "/src/images/experiences/hero.jpg";
   let latestScroll = 0;
   let ticking = false;
 
-  const strength = 0.5; // stronger parallax
-  const fadeDistance = 500;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const strength = isMobile ? 0.15 : 0.5; // lighter on mobile
+  const fadeDistance = isMobile ? 800 : 500;
 
   function update() {
     const translateY = latestScroll * strength;
-    if(!parallax) return;
-
-    // Fade image slightly as user scrolls
-    const opacity = Math.max(
-      0.6,
-      1 - latestScroll / fadeDistance
-    );
-
     parallax.style.transform = `translateY(${translateY}px)`;
-    parallax.style.opacity = opacity.toString();
+
+    if (!isMobile) {
+      const opacity = Math.max(0.6, 1 - latestScroll / fadeDistance);
+      parallax.style.opacity = opacity.toString();
+    }
 
     ticking = false;
   }
 
   window.addEventListener("scroll", () => {
     latestScroll = window.scrollY;
-
     if (!ticking) {
       requestAnimationFrame(update);
       ticking = true;

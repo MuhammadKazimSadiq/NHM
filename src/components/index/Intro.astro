@@ -11,11 +11,11 @@ import intro_2 from '../../images/index/intro-2.png'
 }
 </style>
 
- <section id="intro" class="intro-nhm bg-white py-10 md:py-16 px-0 transition-soft">
-        <div class="intro-container max-w-300 mx-auto px-10 grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-24 items-center">
+ <section id="intro" class="intro-nhm bg-white py-10 md:py-16 px-0">
+        <div class="intro-container max-w-300 mx-auto px-10 grid grid-cols-1 md:grid-cols-2 gap-x-10 lg:gap-x-24 gap-y-10 items-center">
             <!-- Left Column – Text -->
-            <div class="intro-text">
-                <h2 class="font-bold leading-[1.6] tracking-normal mb-5 text-center text-neutral-800 text-[clamp(2.5rem,5vw,3.5rem)] font-heading">
+            <div class="intro-text fade-left">
+                <h2 class="font-bold leading-[1.6] tracking-normal mb-5 text-center text-neutral-800 font-heading text-heading-xl">
                     Travel to Iran with
                     <span class="accent text-(--intro-accent) underline">NHM Travels!</span>
                 </h2>
@@ -31,7 +31,7 @@ import intro_2 from '../../images/index/intro-2.png'
 
 
             <!-- Right Column – Images -->
-            <div class="intro-images flex flex-col gap-5">
+            <div class="intro-images flex flex-col gap-5 fade-right">
                 <IntroImage img={intro_1} altImg="Iran architecture dome turquoise" />
                 <IntroImage img={intro_2} altImg="Iran sunset landscape" />
             </div>
