@@ -9,7 +9,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://nhmtravel.netlify.app",
+  // site: "https://nhmtravel.netlify.app",
+  site: "https://nhmtravel.com/",
 
   vite: {
     plugins: [tailwindcss()],
