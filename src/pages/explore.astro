@@ -11,16 +11,31 @@ import Contact from '../components/explore/Contact.astro';
     <CityList />
     <Contact />
 
-    <script>
-      const video = document.getElementById("heroVideo") as HTMLVideoElement;
-      const playBtn = document.getElementById("playBtn") as HTMLDivElement;
 
-      if (video && playBtn) {
-          playBtn.addEventListener("click", function () {
-            video.play();
-            video.setAttribute("controls", "true");
-            playBtn.style.display = "none";
-          });
-      }
-    </script>
+
+<script>
+  function initHeroVideo() {
+    const video = document.getElementById("heroVideo") as HTMLVideoElement | null;
+    const playBtn = document.getElementById("playBtn") as HTMLElement | null;
+
+    if (!video) return;
+
+    // Force the browser to load the source after Astro swaps pages.
+    video.load();
+
+    if (playBtn) {
+      playBtn.style.display = "block";
+    }
+
+    video.addEventListener("playing", () => {
+      if (playBtn) playBtn.style.display = "none";
+    }, { once: true });
+
+    video.play().catch((error) => {
+      console.log("Video autoplay failed:", error);
+    });
+  }
+
+  document.addEventListener("astro:page-load", initHeroVideo);
+</script>
 </Layout>
