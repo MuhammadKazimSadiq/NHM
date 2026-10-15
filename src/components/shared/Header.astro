@@ -33,10 +33,10 @@ import Logo from '../../images/logo.png';
     </svg>
   </button>
   <ul class="flex flex-col gap-8 text-center text-2xl">
-    <NavLink href="/">Home</NavLink>
-    <NavLink href="/services">Services</NavLink>
-    <NavLink href="/explore">Explore</NavLink>
-    <!-- <NavLink href="/experiences">Featured Experiences</NavLink> -->
+    <NavLink href="/" class="text-2xl">Home</NavLink>
+    <NavLink href="/services" class="text-2xl">Services</NavLink>
+    <NavLink href="/explore" class="text-2xl">Explore</NavLink>
+    <!-- <NavLink href="/experiences" class="text-2xl">Featured Experiences</NavLink> -->
   </ul>
 </div>
 
@@ -48,6 +48,40 @@ function initHeader() {
   const menu = document.getElementById("mobile-menu");
 
   if (!header) return;
+
+  // ---- Active Navigation Links ----
+  const updateActiveLinks = () => {
+    const rawPath = window.location.pathname;
+    const clean = rawPath.split("?")[0].split("#")[0];
+    const current = clean.replace(/\/+$/, "") || "/";
+
+    const links = document.querySelectorAll<HTMLAnchorElement>("a[data-nav-link]");
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (!href) return;
+      const targetClean = href.split("?")[0].split("#")[0];
+      const target = targetClean.replace(/\/+$/, "") || "/";
+
+      const isActive =
+        target === "/"
+          ? current === "/" || current === "/index.html"
+          : current === target ||
+            current.startsWith(target + "/") ||
+            (target === "/explore" && current.startsWith("/cities"));
+
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+        link.classList.add("active", "text-(--color-accent)", "after:w-full");
+        link.classList.remove("text-gray-100", "after:w-0");
+      } else {
+        link.removeAttribute("aria-current");
+        link.classList.remove("active", "text-(--color-accent)", "after:w-full");
+        link.classList.add("text-gray-100", "after:w-0");
+      }
+    });
+  };
+
+  updateActiveLinks();
 
   // ---- Scroll effect ----
   const onScroll = () => {

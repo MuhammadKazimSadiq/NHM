@@ -1,20 +1,61 @@
 ---
-const {
-    href,
-    text
-} = Astro.props
+interface Props {
+  href: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const { href, class: className = "", ...rest } = Astro.props;
+
+function normalizePath(path: string): string {
+  const clean = path.split('?')[0].split('#')[0];
+  const trimmed = clean.replace(/\/+$/, '');
+  return trimmed === '' ? '/' : trimmed;
+}
+
+const current = normalizePath(Astro.url.pathname);
+const target = normalizePath(href);
+
+const isActive = target === '/'
+  ? current === '/' || current === '/index.html'
+  : current === target || current.startsWith(target + '/') || (target === '/explore' && current.startsWith('/cities'));
 ---
 
 <li>
-    <a href={href}
-    class="relative text-base font-medium text-gray-100
-            after:absolute after:-bottom-1 after:left-0
-            after:h-0.5 after:w-0
-            after:bg-(--color-accent)
-            after:transition-all after:duration-200
-            hover:after:w-full
-            drop-shadow-[0_8px_30px_rgba(0,0,0,0.8)]"
-    >
-        <slot/>
-    </a>
+  <a
+    href={href}
+    data-nav-link
+    aria-current={isActive ? "page" : undefined}
+    class:list={[
+      "nav-link relative inline-block font-medium drop-shadow-[0_8px_30px_rgba(0,0,0,0.8)] transition-colors duration-200",
+      "after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:bg-(--color-accent) after:transition-all after:duration-200",
+      className || "text-base",
+      isActive
+        ? "active text-(--color-accent) after:w-full"
+        : "text-gray-100 hover:text-white after:w-0 hover:after:w-full"
+    ]}
+    {...rest}
+  >
+    <slot />
+  </a>
 </li>
+
+<style>
+  .nav-link::after {
+    content: "";
+  }
+  .nav-link.active,
+  .nav-link[aria-current="page"] {
+    color: var(--color-accent) !important;
+  }
+  .nav-link.active::after,
+  .nav-link[aria-current="page"]::after {
+    width: 100% !important;
+  }
+  .nav-link:not(.active):not([aria-current="page"]):not(:hover)::after {
+    width: 0 !important;
+  }
+  .nav-link:not(.active):not([aria-current="page"]):hover::after {
+    width: 100% !important;
+  }
+</style>

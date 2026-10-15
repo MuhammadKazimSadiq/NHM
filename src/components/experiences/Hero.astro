@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import heroImg from "/src/images/experiences/hero.jpg";
 ---
 
-<section class="relative flex min-h-screen overflow-hidden text-white max-md:min-h-[600px] max-md:py-12">
+<section class="relative flex hero-viewport items-center justify-center overflow-hidden text-white">
   <!-- Parallax wrapper -->
   <div id="experiences-hero-parallax" class="absolute inset-0 will-change-transform">
 
@@ -34,6 +34,12 @@ import heroImg from "/src/images/experiences/hero.jpg";
 
   </div>
 
+  <!-- Gradient overlay adapted for top nav and centered heading -->
+  <div
+    class="pointer-events-none absolute inset-0 z-[5] experiences-hero-overlay"
+    aria-hidden="true"
+  ></div>
+
   <!-- Content -->
   <div class="relative z-10 container mx-auto flex w-full items-center justify-center px-4 text-center">
     <div class="fade-in slow">
@@ -50,6 +56,35 @@ import heroImg from "/src/images/experiences/hero.jpg";
     </div>
   </div>
 </section>
+
+<style>
+.hero-viewport {
+  height: 94vh;
+  height: 94dvh;
+  min-height: 520px;
+}
+
+@media (max-width: 640px) {
+  .hero-viewport {
+    height: 93vh;
+    height: 93dvh;
+    min-height: 480px;
+  }
+}
+
+.experiences-hero-overlay {
+  background:
+    radial-gradient(ellipse 65% 45% at 50% 50%, rgba(0, 0, 0, 0.28) 0%, transparent 70%),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.48) 0%,
+      rgba(0, 0, 0, 0.12) 18%,
+      transparent 35%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+}
+</style>
 
 <script>
 (() => {
