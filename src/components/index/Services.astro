@@ -3,6 +3,7 @@ import ServiceCard from "./ServiceCard.astro"
 import Service_1 from "../../images/index/service-1.jpg"
 import Service_2 from "../../images/index/service-2.jpg"
 import Service_3 from "../../images/index/service-3.jpg"
+import servicesBackground from "../../images/index/servicesbackground.webp";
 
 const services = [
   {
@@ -48,12 +49,25 @@ const services = [
 
 <section
   id="services"
-  class="bg-[#5a422f] py-20"
+  class="relative isolate overflow-hidden bg-[#5a422f] py-20"
 >
-  <div class="container">
+  <!-- Blurred background image -->
+  <div
+    class="absolute inset-0 scale-105 blur-md"
+    style={`background-image: url('${servicesBackground.src}'); background-size: cover; background-position: center;`}
+    aria-hidden="true"
+  ></div>
+
+  <!-- Brown overlay -->
+  <div
+    class="absolute inset-0 bg-[#5a422f]/85"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container relative z-10">
     <!-- Header -->
     <header class="mb-12 text-center">
-      <h2 class="font-heading font-bold text-white text-section-heading">
+      <h2 class="font-heading font-bold text-white text-section-heading drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]">
         Our Services
       </h2>
     </header>
