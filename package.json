@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "deploy:ftp": "python3 scripts/deploy_ftp.py",
     "preview": "astro preview",
     "astro": "astro"
   },
